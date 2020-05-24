@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="13ec416b919d403cb3dd1d2286d2b23d" Name="Diagram1">
+        <EntityTypeShape EntityType="AnimeEntities.P_Adaptatie" Width="1.5" PointX="6" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnimeEntities.P_Aflevering" Width="1.5" PointX="12.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnimeEntities.P_Auteur" Width="1.5" PointX="0.875" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnimeEntities.P_Genre" Width="1.5" PointX="8.125" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnimeEntities.P_Genre_Lijst_Manga" Width="1.5" PointX="5.875" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnimeEntities.P_Genre_lijstAnime" Width="1.5" PointX="11.5" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnimeEntities.P_Geslacht" Width="1.5" PointX="2.5" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnimeEntities.P_Manga" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnimeEntities.P_Personage" Width="1.5" PointX="5.375" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnimeEntities.P_Rol" Width="1.5" PointX="5.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnimeEntities.P_Seizoen" Width="1.5" PointX="9.125" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnimeEntities.P_Stemacteur" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnimeEntities.P_Studio" Width="1.5" PointX="10.125" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnimeEntities.P_Verschijning" Width="1.5" PointX="7.5" PointY="5.875" IsExpanded="true" />
+        <AssociationConnector Association="AnimeEntities.FK_P_Adaptatie_P_Manga" ManuallyRouted="false" />
+        <AssociationConnector Association="AnimeEntities.FK_P_Adaptatie_P_Seizoen" ManuallyRouted="false" />
+        <AssociationConnector Association="AnimeEntities.FK_P_Seizoen_P_Aflevering" ManuallyRouted="false" />
+        <AssociationConnector Association="AnimeEntities.FK_P_Auteur_P_Geslacht" ManuallyRouted="false" />
+        <AssociationConnector Association="AnimeEntities.FK_P_Manga_P_Auteur" ManuallyRouted="false" />
+        <AssociationConnector Association="AnimeEntities.FK_P_Genre_Lijst_Manga_P_Genre" ManuallyRouted="false" />
+        <AssociationConnector Association="AnimeEntities.FK_P_Genre_lijstAnime_P_Genre" ManuallyRouted="false" />
+        <AssociationConnector Association="AnimeEntities.FK_P_Genre_Lijst_Manga_P_Manga" ManuallyRouted="false" />
+        <AssociationConnector Association="AnimeEntities.FK_P_Genre_lijstAnime_P_Seizoen" ManuallyRouted="false" />
+        <AssociationConnector Association="AnimeEntities.FK_P_Personage_P_Geslacht" ManuallyRouted="false" />
+        <AssociationConnector Association="AnimeEntities.FK_P_Stemacteur_P_Geslacht" ManuallyRouted="false" />
+        <AssociationConnector Association="AnimeEntities.FK_P_Personage_P_Stemacteur" ManuallyRouted="false" />
+        <AssociationConnector Association="AnimeEntities.FK_P_Verschijning_P_Personage" ManuallyRouted="false" />
+        <AssociationConnector Association="AnimeEntities.FK_P_Verschijning_P_Rol" ManuallyRouted="false" />
+        <AssociationConnector Association="AnimeEntities.FK_P_Seizoen_P_Seizoen" ManuallyRouted="false" />
+        <AssociationConnector Association="AnimeEntities.FK_P_Seizoen_P_Studio" ManuallyRouted="false" />
+        <AssociationConnector Association="AnimeEntities.FK_P_Verschijning_P_Seizoen" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
