@@ -1,0 +1,1044 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AnimeEntities.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="P_Adaptatie">
+          <Key>
+            <PropertyRef Name="Adaptatie_id" />
+          </Key>
+          <Property Name="Adaptatie_id" Type="int" Nullable="false" />
+          <Property Name="Manga_id" Type="int" />
+          <Property Name="Seizoen_id" Type="int" />
+        </EntityType>
+        <EntityType Name="P_Aflevering">
+          <Key>
+            <PropertyRef Name="Aflevering_id" />
+          </Key>
+          <Property Name="Aflevering_id" Type="int" Nullable="false" />
+          <Property Name="Seizoen_id" Type="int" Nullable="false" />
+          <Property Name="Naam" Type="varchar" MaxLength="255" />
+          <Property Name="Airdatum" Type="date" />
+          <Property Name="Speelduur" Type="time" Precision="7" />
+          <Property Name="Omschrijving" Type="varchar" MaxLength="8000" />
+        </EntityType>
+        <EntityType Name="P_Auteur">
+          <Key>
+            <PropertyRef Name="Auteur_id" />
+          </Key>
+          <Property Name="Naam" Type="varchar" MaxLength="255" />
+          <Property Name="Auteur_id" Type="int" Nullable="false" />
+          <Property Name="Voornaam" Type="varchar" MaxLength="255" />
+          <Property Name="Geboortedatum" Type="date" />
+          <Property Name="Geslacht_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="P_Genre">
+          <Key>
+            <PropertyRef Name="Genre_ID" />
+          </Key>
+          <Property Name="Genre_ID" Type="int" Nullable="false" />
+          <Property Name="Naam" Type="varchar" MaxLength="255" />
+          <Property Name="Omschrijving" Type="varchar" MaxLength="8000" />
+        </EntityType>
+        <EntityType Name="P_Genre_Lijst_Manga">
+          <Key>
+            <PropertyRef Name="Genrelijstmanga_ID" />
+          </Key>
+          <Property Name="Genrelijstmanga_ID" Type="int" Nullable="false" />
+          <Property Name="Manga_id" Type="int" />
+          <Property Name="Genre_id" Type="int" />
+        </EntityType>
+        <EntityType Name="P_Genre_lijstAnime">
+          <Key>
+            <PropertyRef Name="GenreLijst_id" />
+          </Key>
+          <Property Name="GenreLijst_id" Type="int" Nullable="false" />
+          <Property Name="Genre_id" Type="int" />
+          <Property Name="Seizoen_id" Type="int" />
+        </EntityType>
+        <EntityType Name="P_Geslacht">
+          <Key>
+            <PropertyRef Name="Geslacht_id" />
+          </Key>
+          <Property Name="Geslacht_id" Type="int" Nullable="false" />
+          <Property Name="Naam" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="P_Manga">
+          <Key>
+            <PropertyRef Name="Manga_id" />
+          </Key>
+          <Property Name="Manga_id" Type="int" Nullable="false" />
+          <Property Name="Auteur_id" Type="int" Nullable="false" />
+          <Property Name="Naam" Type="varchar" MaxLength="255" />
+          <Property Name="StartPublishdatum" Type="date" />
+          <Property Name="EindePublishDatum" Type="date" />
+          <Property Name="Omschrijving" Type="varchar" MaxLength="8000" />
+        </EntityType>
+        <EntityType Name="P_Personage">
+          <Key>
+            <PropertyRef Name="Personage_id" />
+          </Key>
+          <Property Name="Personage_id" Type="int" Nullable="false" />
+          <Property Name="Naam" Type="varchar" MaxLength="255" />
+          <Property Name="Stemacteur_id" Type="int" Nullable="false" />
+          <Property Name="Geslacht_id" Type="int" Nullable="false" />
+          <Property Name="Omschrijving" Type="varchar" MaxLength="8000" />
+        </EntityType>
+        <EntityType Name="P_Rol">
+          <Key>
+            <PropertyRef Name="Rol_ID" />
+          </Key>
+          <Property Name="Rol_ID" Type="int" Nullable="false" />
+          <Property Name="Naam" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="P_Seizoen">
+          <Key>
+            <PropertyRef Name="Seizoen_id" />
+          </Key>
+          <Property Name="Seizoen_id" Type="int" Nullable="false" />
+          <Property Name="Vervolg_id" Type="int" />
+          <Property Name="Studio_id" Type="int" Nullable="false" />
+          <Property Name="Naam" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Begindatum_uitzending" Type="date" />
+          <Property Name="Einddatum_uitzending" Type="date" />
+          <Property Name="Omschrijving" Type="varchar" MaxLength="8000" />
+        </EntityType>
+        <EntityType Name="P_Stemacteur">
+          <Key>
+            <PropertyRef Name="Stemacteur_id" />
+          </Key>
+          <Property Name="Stemacteur_id" Type="int" Nullable="false" />
+          <Property Name="Naam" Type="varchar" MaxLength="255" />
+          <Property Name="Voornaam" Type="varchar" MaxLength="255" />
+          <Property Name="Geboortedatum" Type="date" />
+          <Property Name="Geslacht_id" Type="int" />
+        </EntityType>
+        <EntityType Name="P_Studio">
+          <Key>
+            <PropertyRef Name="Studio_id" />
+          </Key>
+          <Property Name="Studio_id" Type="int" Nullable="false" />
+          <Property Name="Naam" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="P_Verschijning">
+          <Key>
+            <PropertyRef Name="Verschijning_id" />
+          </Key>
+          <Property Name="Verschijning_id" Type="int" Nullable="false" />
+          <Property Name="Personage_id" Type="int" Nullable="false" />
+          <Property Name="Seizoen_id" Type="int" Nullable="false" />
+          <Property Name="Rol_id" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_P_Adaptatie_P_Manga">
+          <End Role="P_Manga" Type="Self.P_Manga" Multiplicity="0..1" />
+          <End Role="P_Adaptatie" Type="Self.P_Adaptatie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Manga">
+              <PropertyRef Name="Manga_id" />
+            </Principal>
+            <Dependent Role="P_Adaptatie">
+              <PropertyRef Name="Manga_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P_Adaptatie_P_Seizoen">
+          <End Role="P_Seizoen" Type="Self.P_Seizoen" Multiplicity="0..1" />
+          <End Role="P_Adaptatie" Type="Self.P_Adaptatie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Seizoen">
+              <PropertyRef Name="Seizoen_id" />
+            </Principal>
+            <Dependent Role="P_Adaptatie">
+              <PropertyRef Name="Seizoen_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P_Auteur_P_Geslacht">
+          <End Role="P_Geslacht" Type="Self.P_Geslacht" Multiplicity="1" />
+          <End Role="P_Auteur" Type="Self.P_Auteur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Geslacht">
+              <PropertyRef Name="Geslacht_id" />
+            </Principal>
+            <Dependent Role="P_Auteur">
+              <PropertyRef Name="Geslacht_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P_Genre_Lijst_Manga_P_Genre">
+          <End Role="P_Genre" Type="Self.P_Genre" Multiplicity="0..1" />
+          <End Role="P_Genre_Lijst_Manga" Type="Self.P_Genre_Lijst_Manga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Genre">
+              <PropertyRef Name="Genre_ID" />
+            </Principal>
+            <Dependent Role="P_Genre_Lijst_Manga">
+              <PropertyRef Name="Genre_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P_Genre_Lijst_Manga_P_Manga">
+          <End Role="P_Manga" Type="Self.P_Manga" Multiplicity="0..1" />
+          <End Role="P_Genre_Lijst_Manga" Type="Self.P_Genre_Lijst_Manga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Manga">
+              <PropertyRef Name="Manga_id" />
+            </Principal>
+            <Dependent Role="P_Genre_Lijst_Manga">
+              <PropertyRef Name="Manga_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P_Genre_lijstAnime_P_Genre">
+          <End Role="P_Genre" Type="Self.P_Genre" Multiplicity="0..1" />
+          <End Role="P_Genre_lijstAnime" Type="Self.P_Genre_lijstAnime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Genre">
+              <PropertyRef Name="Genre_ID" />
+            </Principal>
+            <Dependent Role="P_Genre_lijstAnime">
+              <PropertyRef Name="Genre_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P_Genre_lijstAnime_P_Seizoen">
+          <End Role="P_Seizoen" Type="Self.P_Seizoen" Multiplicity="0..1" />
+          <End Role="P_Genre_lijstAnime" Type="Self.P_Genre_lijstAnime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Seizoen">
+              <PropertyRef Name="Seizoen_id" />
+            </Principal>
+            <Dependent Role="P_Genre_lijstAnime">
+              <PropertyRef Name="Seizoen_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P_Manga_P_Auteur">
+          <End Role="P_Auteur" Type="Self.P_Auteur" Multiplicity="1" />
+          <End Role="P_Manga" Type="Self.P_Manga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Auteur">
+              <PropertyRef Name="Auteur_id" />
+            </Principal>
+            <Dependent Role="P_Manga">
+              <PropertyRef Name="Auteur_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P_Personage_P_Geslacht">
+          <End Role="P_Geslacht" Type="Self.P_Geslacht" Multiplicity="1" />
+          <End Role="P_Personage" Type="Self.P_Personage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Geslacht">
+              <PropertyRef Name="Geslacht_id" />
+            </Principal>
+            <Dependent Role="P_Personage">
+              <PropertyRef Name="Geslacht_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P_Personage_P_Stemacteur">
+          <End Role="P_Stemacteur" Type="Self.P_Stemacteur" Multiplicity="1" />
+          <End Role="P_Personage" Type="Self.P_Personage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Stemacteur">
+              <PropertyRef Name="Stemacteur_id" />
+            </Principal>
+            <Dependent Role="P_Personage">
+              <PropertyRef Name="Stemacteur_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P_Seizoen_P_Aflevering">
+          <End Role="P_Seizoen" Type="Self.P_Seizoen" Multiplicity="1" />
+          <End Role="P_Aflevering" Type="Self.P_Aflevering" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Seizoen">
+              <PropertyRef Name="Seizoen_id" />
+            </Principal>
+            <Dependent Role="P_Aflevering">
+              <PropertyRef Name="Seizoen_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P_Seizoen_P_Seizoen">
+          <End Role="P_Seizoen" Type="Self.P_Seizoen" Multiplicity="0..1" />
+          <End Role="P_Seizoen1" Type="Self.P_Seizoen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Seizoen">
+              <PropertyRef Name="Seizoen_id" />
+            </Principal>
+            <Dependent Role="P_Seizoen1">
+              <PropertyRef Name="Vervolg_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P_Seizoen_P_Studio">
+          <End Role="P_Studio" Type="Self.P_Studio" Multiplicity="1" />
+          <End Role="P_Seizoen" Type="Self.P_Seizoen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Studio">
+              <PropertyRef Name="Studio_id" />
+            </Principal>
+            <Dependent Role="P_Seizoen">
+              <PropertyRef Name="Studio_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P_Stemacteur_P_Geslacht">
+          <End Role="P_Geslacht" Type="Self.P_Geslacht" Multiplicity="0..1" />
+          <End Role="P_Stemacteur" Type="Self.P_Stemacteur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Geslacht">
+              <PropertyRef Name="Geslacht_id" />
+            </Principal>
+            <Dependent Role="P_Stemacteur">
+              <PropertyRef Name="Geslacht_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P_Verschijning_P_Personage">
+          <End Role="P_Personage" Type="Self.P_Personage" Multiplicity="1" />
+          <End Role="P_Verschijning" Type="Self.P_Verschijning" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Personage">
+              <PropertyRef Name="Personage_id" />
+            </Principal>
+            <Dependent Role="P_Verschijning">
+              <PropertyRef Name="Personage_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P_Verschijning_P_Rol">
+          <End Role="P_Rol" Type="Self.P_Rol" Multiplicity="1" />
+          <End Role="P_Verschijning" Type="Self.P_Verschijning" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Rol">
+              <PropertyRef Name="Rol_ID" />
+            </Principal>
+            <Dependent Role="P_Verschijning">
+              <PropertyRef Name="Rol_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P_Verschijning_P_Seizoen">
+          <End Role="P_Seizoen" Type="Self.P_Seizoen" Multiplicity="1" />
+          <End Role="P_Verschijning" Type="Self.P_Verschijning" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Seizoen">
+              <PropertyRef Name="Seizoen_id" />
+            </Principal>
+            <Dependent Role="P_Verschijning">
+              <PropertyRef Name="Seizoen_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AnimeEntitiesStoreContainer">
+          <EntitySet Name="P_Adaptatie" EntityType="Self.P_Adaptatie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="P_Aflevering" EntityType="Self.P_Aflevering" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="P_Auteur" EntityType="Self.P_Auteur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="P_Genre" EntityType="Self.P_Genre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="P_Genre_Lijst_Manga" EntityType="Self.P_Genre_Lijst_Manga" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="P_Genre_lijstAnime" EntityType="Self.P_Genre_lijstAnime" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="P_Geslacht" EntityType="Self.P_Geslacht" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="P_Manga" EntityType="Self.P_Manga" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="P_Personage" EntityType="Self.P_Personage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="P_Rol" EntityType="Self.P_Rol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="P_Seizoen" EntityType="Self.P_Seizoen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="P_Stemacteur" EntityType="Self.P_Stemacteur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="P_Studio" EntityType="Self.P_Studio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="P_Verschijning" EntityType="Self.P_Verschijning" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_P_Adaptatie_P_Manga" Association="Self.FK_P_Adaptatie_P_Manga">
+            <End Role="P_Manga" EntitySet="P_Manga" />
+            <End Role="P_Adaptatie" EntitySet="P_Adaptatie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P_Adaptatie_P_Seizoen" Association="Self.FK_P_Adaptatie_P_Seizoen">
+            <End Role="P_Seizoen" EntitySet="P_Seizoen" />
+            <End Role="P_Adaptatie" EntitySet="P_Adaptatie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P_Auteur_P_Geslacht" Association="Self.FK_P_Auteur_P_Geslacht">
+            <End Role="P_Geslacht" EntitySet="P_Geslacht" />
+            <End Role="P_Auteur" EntitySet="P_Auteur" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P_Genre_Lijst_Manga_P_Genre" Association="Self.FK_P_Genre_Lijst_Manga_P_Genre">
+            <End Role="P_Genre" EntitySet="P_Genre" />
+            <End Role="P_Genre_Lijst_Manga" EntitySet="P_Genre_Lijst_Manga" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P_Genre_Lijst_Manga_P_Manga" Association="Self.FK_P_Genre_Lijst_Manga_P_Manga">
+            <End Role="P_Manga" EntitySet="P_Manga" />
+            <End Role="P_Genre_Lijst_Manga" EntitySet="P_Genre_Lijst_Manga" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P_Genre_lijstAnime_P_Genre" Association="Self.FK_P_Genre_lijstAnime_P_Genre">
+            <End Role="P_Genre" EntitySet="P_Genre" />
+            <End Role="P_Genre_lijstAnime" EntitySet="P_Genre_lijstAnime" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P_Genre_lijstAnime_P_Seizoen" Association="Self.FK_P_Genre_lijstAnime_P_Seizoen">
+            <End Role="P_Seizoen" EntitySet="P_Seizoen" />
+            <End Role="P_Genre_lijstAnime" EntitySet="P_Genre_lijstAnime" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P_Manga_P_Auteur" Association="Self.FK_P_Manga_P_Auteur">
+            <End Role="P_Auteur" EntitySet="P_Auteur" />
+            <End Role="P_Manga" EntitySet="P_Manga" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P_Personage_P_Geslacht" Association="Self.FK_P_Personage_P_Geslacht">
+            <End Role="P_Geslacht" EntitySet="P_Geslacht" />
+            <End Role="P_Personage" EntitySet="P_Personage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P_Personage_P_Stemacteur" Association="Self.FK_P_Personage_P_Stemacteur">
+            <End Role="P_Stemacteur" EntitySet="P_Stemacteur" />
+            <End Role="P_Personage" EntitySet="P_Personage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P_Seizoen_P_Aflevering" Association="Self.FK_P_Seizoen_P_Aflevering">
+            <End Role="P_Seizoen" EntitySet="P_Seizoen" />
+            <End Role="P_Aflevering" EntitySet="P_Aflevering" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P_Seizoen_P_Seizoen" Association="Self.FK_P_Seizoen_P_Seizoen">
+            <End Role="P_Seizoen" EntitySet="P_Seizoen" />
+            <End Role="P_Seizoen1" EntitySet="P_Seizoen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P_Seizoen_P_Studio" Association="Self.FK_P_Seizoen_P_Studio">
+            <End Role="P_Studio" EntitySet="P_Studio" />
+            <End Role="P_Seizoen" EntitySet="P_Seizoen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P_Stemacteur_P_Geslacht" Association="Self.FK_P_Stemacteur_P_Geslacht">
+            <End Role="P_Geslacht" EntitySet="P_Geslacht" />
+            <End Role="P_Stemacteur" EntitySet="P_Stemacteur" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P_Verschijning_P_Personage" Association="Self.FK_P_Verschijning_P_Personage">
+            <End Role="P_Personage" EntitySet="P_Personage" />
+            <End Role="P_Verschijning" EntitySet="P_Verschijning" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P_Verschijning_P_Rol" Association="Self.FK_P_Verschijning_P_Rol">
+            <End Role="P_Rol" EntitySet="P_Rol" />
+            <End Role="P_Verschijning" EntitySet="P_Verschijning" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P_Verschijning_P_Seizoen" Association="Self.FK_P_Verschijning_P_Seizoen">
+            <End Role="P_Seizoen" EntitySet="P_Seizoen" />
+            <End Role="P_Verschijning" EntitySet="P_Verschijning" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AnimeEntities" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="P_Adaptatie">
+          <Key>
+            <PropertyRef Name="Adaptatie_id" />
+          </Key>
+          <Property Name="Adaptatie_id" Type="Int32" Nullable="false" />
+          <Property Name="Manga_id" Type="Int32" />
+          <Property Name="Seizoen_id" Type="Int32" />
+          <NavigationProperty Name="P_Manga" Relationship="Self.FK_P_Adaptatie_P_Manga" FromRole="P_Adaptatie" ToRole="P_Manga" />
+          <NavigationProperty Name="P_Seizoen" Relationship="Self.FK_P_Adaptatie_P_Seizoen" FromRole="P_Adaptatie" ToRole="P_Seizoen" />
+        </EntityType>
+        <EntityType Name="P_Aflevering">
+          <Key>
+            <PropertyRef Name="Aflevering_id" />
+          </Key>
+          <Property Name="Aflevering_id" Type="Int32" Nullable="false" />
+          <Property Name="Seizoen_id" Type="Int32" Nullable="false" />
+          <Property Name="Naam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Airdatum" Type="DateTime" Precision="0" />
+          <Property Name="Speelduur" Type="Time" Precision="7" />
+          <Property Name="Omschrijving" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="P_Seizoen" Relationship="Self.FK_P_Seizoen_P_Aflevering" FromRole="P_Aflevering" ToRole="P_Seizoen" />
+        </EntityType>
+        <EntityType Name="P_Auteur">
+          <Key>
+            <PropertyRef Name="Auteur_id" />
+          </Key>
+          <Property Name="Naam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Auteur_id" Type="Int32" Nullable="false" />
+          <Property Name="Voornaam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Geboortedatum" Type="DateTime" Precision="0" />
+          <Property Name="Geslacht_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="P_Geslacht" Relationship="Self.FK_P_Auteur_P_Geslacht" FromRole="P_Auteur" ToRole="P_Geslacht" />
+          <NavigationProperty Name="P_Mangas" Relationship="Self.FK_P_Manga_P_Auteur" FromRole="P_Auteur" ToRole="P_Manga" />
+        </EntityType>
+        <EntityType Name="P_Genre">
+          <Key>
+            <PropertyRef Name="Genre_ID" />
+          </Key>
+          <Property Name="Genre_ID" Type="Int32" Nullable="false" />
+          <Property Name="Naam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Omschrijving" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="P_Genre_Lijsten_Manga" Relationship="Self.FK_P_Genre_Lijst_Manga_P_Genre" FromRole="P_Genre" ToRole="P_Genre_Lijst_Manga" />
+          <NavigationProperty Name="P_Genre_lijstenAnime" Relationship="Self.FK_P_Genre_lijstAnime_P_Genre" FromRole="P_Genre" ToRole="P_Genre_lijstAnime" />
+        </EntityType>
+        <EntityType Name="P_Genre_Lijst_Manga">
+          <Key>
+            <PropertyRef Name="Genrelijstmanga_ID" />
+          </Key>
+          <Property Name="Genrelijstmanga_ID" Type="Int32" Nullable="false" />
+          <Property Name="Manga_id" Type="Int32" />
+          <Property Name="Genre_id" Type="Int32" />
+          <NavigationProperty Name="P_Genre" Relationship="Self.FK_P_Genre_Lijst_Manga_P_Genre" FromRole="P_Genre_Lijst_Manga" ToRole="P_Genre" />
+          <NavigationProperty Name="P_Manga" Relationship="Self.FK_P_Genre_Lijst_Manga_P_Manga" FromRole="P_Genre_Lijst_Manga" ToRole="P_Manga" />
+        </EntityType>
+        <EntityType Name="P_Genre_lijstAnime">
+          <Key>
+            <PropertyRef Name="GenreLijst_id" />
+          </Key>
+          <Property Name="GenreLijst_id" Type="Int32" Nullable="false" />
+          <Property Name="Genre_id" Type="Int32" />
+          <Property Name="Seizoen_id" Type="Int32" />
+          <NavigationProperty Name="P_Genre" Relationship="Self.FK_P_Genre_lijstAnime_P_Genre" FromRole="P_Genre_lijstAnime" ToRole="P_Genre" />
+          <NavigationProperty Name="P_Seizoen" Relationship="Self.FK_P_Genre_lijstAnime_P_Seizoen" FromRole="P_Genre_lijstAnime" ToRole="P_Seizoen" />
+        </EntityType>
+        <EntityType Name="P_Geslacht">
+          <Key>
+            <PropertyRef Name="Geslacht_id" />
+          </Key>
+          <Property Name="Geslacht_id" Type="Int32" Nullable="false" />
+          <Property Name="Naam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="P_Auteurs" Relationship="Self.FK_P_Auteur_P_Geslacht" FromRole="P_Geslacht" ToRole="P_Auteur" />
+          <NavigationProperty Name="P_Personages" Relationship="Self.FK_P_Personage_P_Geslacht" FromRole="P_Geslacht" ToRole="P_Personage" />
+          <NavigationProperty Name="P_Stemacteurs" Relationship="Self.FK_P_Stemacteur_P_Geslacht" FromRole="P_Geslacht" ToRole="P_Stemacteur" />
+        </EntityType>
+        <EntityType Name="P_Manga">
+          <Key>
+            <PropertyRef Name="Manga_id" />
+          </Key>
+          <Property Name="Manga_id" Type="Int32" Nullable="false" />
+          <Property Name="Auteur_id" Type="Int32" Nullable="false" />
+          <Property Name="Naam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="StartPublishdatum" Type="DateTime" Precision="0" />
+          <Property Name="EindePublishDatum" Type="DateTime" Precision="0" />
+          <Property Name="Omschrijving" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="P_Adaptaties" Relationship="Self.FK_P_Adaptatie_P_Manga" FromRole="P_Manga" ToRole="P_Adaptatie" />
+          <NavigationProperty Name="P_Auteur" Relationship="Self.FK_P_Manga_P_Auteur" FromRole="P_Manga" ToRole="P_Auteur" />
+          <NavigationProperty Name="P_Genre_Lijst_Manga" Relationship="Self.FK_P_Genre_Lijst_Manga_P_Manga" FromRole="P_Manga" ToRole="P_Genre_Lijst_Manga" />
+        </EntityType>
+        <EntityType Name="P_Personage">
+          <Key>
+            <PropertyRef Name="Personage_id" />
+          </Key>
+          <Property Name="Personage_id" Type="Int32" Nullable="false" />
+          <Property Name="Naam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Stemacteur_id" Type="Int32" Nullable="false" />
+          <Property Name="Geslacht_id" Type="Int32" Nullable="false" />
+          <Property Name="Omschrijving" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="P_Geslacht" Relationship="Self.FK_P_Personage_P_Geslacht" FromRole="P_Personage" ToRole="P_Geslacht" />
+          <NavigationProperty Name="P_Stemacteur" Relationship="Self.FK_P_Personage_P_Stemacteur" FromRole="P_Personage" ToRole="P_Stemacteur" />
+          <NavigationProperty Name="P_Verschijningen" Relationship="Self.FK_P_Verschijning_P_Personage" FromRole="P_Personage" ToRole="P_Verschijning" />
+        </EntityType>
+        <EntityType Name="P_Rol">
+          <Key>
+            <PropertyRef Name="Rol_ID" />
+          </Key>
+          <Property Name="Rol_ID" Type="Int32" Nullable="false" />
+          <Property Name="Naam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="P_Verschijningen" Relationship="Self.FK_P_Verschijning_P_Rol" FromRole="P_Rol" ToRole="P_Verschijning" />
+        </EntityType>
+        <EntityType Name="P_Seizoen">
+          <Key>
+            <PropertyRef Name="Seizoen_id" />
+          </Key>
+          <Property Name="Seizoen_id" Type="Int32" Nullable="false" />
+          <Property Name="Vervolg_id" Type="Int32" />
+          <Property Name="Studio_id" Type="Int32" Nullable="false" />
+          <Property Name="Naam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Begindatum_uitzending" Type="DateTime" Precision="0" />
+          <Property Name="Einddatum_uitzending" Type="DateTime" Precision="0" />
+          <Property Name="Omschrijving" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="P_Adaptaties" Relationship="Self.FK_P_Adaptatie_P_Seizoen" FromRole="P_Seizoen" ToRole="P_Adaptatie" />
+          <NavigationProperty Name="P_Afleveringen" Relationship="Self.FK_P_Seizoen_P_Aflevering" FromRole="P_Seizoen" ToRole="P_Aflevering" />
+          <NavigationProperty Name="P_Genre_lijstenAnime" Relationship="Self.FK_P_Genre_lijstAnime_P_Seizoen" FromRole="P_Seizoen" ToRole="P_Genre_lijstAnime" />
+          <NavigationProperty Name="P_Seizoenen" Relationship="Self.FK_P_Seizoen_P_Seizoen" FromRole="P_Seizoen" ToRole="P_Seizoen1" />
+          <NavigationProperty Name="P_Seizoen1" Relationship="Self.FK_P_Seizoen_P_Seizoen" FromRole="P_Seizoen1" ToRole="P_Seizoen" />
+          <NavigationProperty Name="P_Studio" Relationship="Self.FK_P_Seizoen_P_Studio" FromRole="P_Seizoen" ToRole="P_Studio" />
+          <NavigationProperty Name="P_Verschijningen" Relationship="Self.FK_P_Verschijning_P_Seizoen" FromRole="P_Seizoen" ToRole="P_Verschijning" />
+        </EntityType>
+        <EntityType Name="P_Stemacteur">
+          <Key>
+            <PropertyRef Name="Stemacteur_id" />
+          </Key>
+          <Property Name="Stemacteur_id" Type="Int32" Nullable="false" />
+          <Property Name="Naam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Voornaam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Geboortedatum" Type="DateTime" Precision="0" />
+          <Property Name="Geslacht_id" Type="Int32" />
+          <NavigationProperty Name="P_Geslacht" Relationship="Self.FK_P_Stemacteur_P_Geslacht" FromRole="P_Stemacteur" ToRole="P_Geslacht" />
+          <NavigationProperty Name="P_Personages" Relationship="Self.FK_P_Personage_P_Stemacteur" FromRole="P_Stemacteur" ToRole="P_Personage" />
+        </EntityType>
+        <EntityType Name="P_Studio">
+          <Key>
+            <PropertyRef Name="Studio_id" />
+          </Key>
+          <Property Name="Studio_id" Type="Int32" Nullable="false" />
+          <Property Name="Naam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="P_Seizoenen" Relationship="Self.FK_P_Seizoen_P_Studio" FromRole="P_Studio" ToRole="P_Seizoen" />
+        </EntityType>
+        <EntityType Name="P_Verschijning">
+          <Key>
+            <PropertyRef Name="Verschijning_id" />
+          </Key>
+          <Property Name="Verschijning_id" Type="Int32" Nullable="false" />
+          <Property Name="Personage_id" Type="Int32" Nullable="false" />
+          <Property Name="Seizoen_id" Type="Int32" Nullable="false" />
+          <Property Name="Rol_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="P_Personage" Relationship="Self.FK_P_Verschijning_P_Personage" FromRole="P_Verschijning" ToRole="P_Personage" />
+          <NavigationProperty Name="P_Rol" Relationship="Self.FK_P_Verschijning_P_Rol" FromRole="P_Verschijning" ToRole="P_Rol" />
+          <NavigationProperty Name="P_Seizoen" Relationship="Self.FK_P_Verschijning_P_Seizoen" FromRole="P_Verschijning" ToRole="P_Seizoen" />
+        </EntityType>
+        <Association Name="FK_P_Adaptatie_P_Manga">
+          <End Role="P_Manga" Type="Self.P_Manga" Multiplicity="0..1" />
+          <End Role="P_Adaptatie" Type="Self.P_Adaptatie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Manga">
+              <PropertyRef Name="Manga_id" />
+            </Principal>
+            <Dependent Role="P_Adaptatie">
+              <PropertyRef Name="Manga_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P_Adaptatie_P_Seizoen">
+          <End Role="P_Seizoen" Type="Self.P_Seizoen" Multiplicity="0..1" />
+          <End Role="P_Adaptatie" Type="Self.P_Adaptatie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Seizoen">
+              <PropertyRef Name="Seizoen_id" />
+            </Principal>
+            <Dependent Role="P_Adaptatie">
+              <PropertyRef Name="Seizoen_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P_Seizoen_P_Aflevering">
+          <End Role="P_Seizoen" Type="Self.P_Seizoen" Multiplicity="1" />
+          <End Role="P_Aflevering" Type="Self.P_Aflevering" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Seizoen">
+              <PropertyRef Name="Seizoen_id" />
+            </Principal>
+            <Dependent Role="P_Aflevering">
+              <PropertyRef Name="Seizoen_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P_Auteur_P_Geslacht">
+          <End Role="P_Geslacht" Type="Self.P_Geslacht" Multiplicity="1" />
+          <End Role="P_Auteur" Type="Self.P_Auteur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Geslacht">
+              <PropertyRef Name="Geslacht_id" />
+            </Principal>
+            <Dependent Role="P_Auteur">
+              <PropertyRef Name="Geslacht_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P_Manga_P_Auteur">
+          <End Role="P_Auteur" Type="Self.P_Auteur" Multiplicity="1" />
+          <End Role="P_Manga" Type="Self.P_Manga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Auteur">
+              <PropertyRef Name="Auteur_id" />
+            </Principal>
+            <Dependent Role="P_Manga">
+              <PropertyRef Name="Auteur_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P_Genre_Lijst_Manga_P_Genre">
+          <End Role="P_Genre" Type="Self.P_Genre" Multiplicity="0..1" />
+          <End Role="P_Genre_Lijst_Manga" Type="Self.P_Genre_Lijst_Manga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Genre">
+              <PropertyRef Name="Genre_ID" />
+            </Principal>
+            <Dependent Role="P_Genre_Lijst_Manga">
+              <PropertyRef Name="Genre_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P_Genre_lijstAnime_P_Genre">
+          <End Role="P_Genre" Type="Self.P_Genre" Multiplicity="0..1" />
+          <End Role="P_Genre_lijstAnime" Type="Self.P_Genre_lijstAnime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Genre">
+              <PropertyRef Name="Genre_ID" />
+            </Principal>
+            <Dependent Role="P_Genre_lijstAnime">
+              <PropertyRef Name="Genre_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P_Genre_Lijst_Manga_P_Manga">
+          <End Role="P_Manga" Type="Self.P_Manga" Multiplicity="0..1" />
+          <End Role="P_Genre_Lijst_Manga" Type="Self.P_Genre_Lijst_Manga" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Manga">
+              <PropertyRef Name="Manga_id" />
+            </Principal>
+            <Dependent Role="P_Genre_Lijst_Manga">
+              <PropertyRef Name="Manga_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P_Genre_lijstAnime_P_Seizoen">
+          <End Role="P_Seizoen" Type="Self.P_Seizoen" Multiplicity="0..1" />
+          <End Role="P_Genre_lijstAnime" Type="Self.P_Genre_lijstAnime" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Seizoen">
+              <PropertyRef Name="Seizoen_id" />
+            </Principal>
+            <Dependent Role="P_Genre_lijstAnime">
+              <PropertyRef Name="Seizoen_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P_Personage_P_Geslacht">
+          <End Role="P_Geslacht" Type="Self.P_Geslacht" Multiplicity="1" />
+          <End Role="P_Personage" Type="Self.P_Personage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Geslacht">
+              <PropertyRef Name="Geslacht_id" />
+            </Principal>
+            <Dependent Role="P_Personage">
+              <PropertyRef Name="Geslacht_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P_Stemacteur_P_Geslacht">
+          <End Role="P_Geslacht" Type="Self.P_Geslacht" Multiplicity="0..1" />
+          <End Role="P_Stemacteur" Type="Self.P_Stemacteur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Geslacht">
+              <PropertyRef Name="Geslacht_id" />
+            </Principal>
+            <Dependent Role="P_Stemacteur">
+              <PropertyRef Name="Geslacht_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P_Personage_P_Stemacteur">
+          <End Role="P_Stemacteur" Type="Self.P_Stemacteur" Multiplicity="1" />
+          <End Role="P_Personage" Type="Self.P_Personage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Stemacteur">
+              <PropertyRef Name="Stemacteur_id" />
+            </Principal>
+            <Dependent Role="P_Personage">
+              <PropertyRef Name="Stemacteur_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P_Verschijning_P_Personage">
+          <End Role="P_Personage" Type="Self.P_Personage" Multiplicity="1" />
+          <End Role="P_Verschijning" Type="Self.P_Verschijning" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Personage">
+              <PropertyRef Name="Personage_id" />
+            </Principal>
+            <Dependent Role="P_Verschijning">
+              <PropertyRef Name="Personage_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P_Verschijning_P_Rol">
+          <End Role="P_Rol" Type="Self.P_Rol" Multiplicity="1" />
+          <End Role="P_Verschijning" Type="Self.P_Verschijning" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Rol">
+              <PropertyRef Name="Rol_ID" />
+            </Principal>
+            <Dependent Role="P_Verschijning">
+              <PropertyRef Name="Rol_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P_Seizoen_P_Seizoen">
+          <End Role="P_Seizoen" Type="Self.P_Seizoen" Multiplicity="0..1" />
+          <End Role="P_Seizoen1" Type="Self.P_Seizoen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Seizoen">
+              <PropertyRef Name="Seizoen_id" />
+            </Principal>
+            <Dependent Role="P_Seizoen1">
+              <PropertyRef Name="Vervolg_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P_Seizoen_P_Studio">
+          <End Role="P_Studio" Type="Self.P_Studio" Multiplicity="1" />
+          <End Role="P_Seizoen" Type="Self.P_Seizoen" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Studio">
+              <PropertyRef Name="Studio_id" />
+            </Principal>
+            <Dependent Role="P_Seizoen">
+              <PropertyRef Name="Studio_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_P_Verschijning_P_Seizoen">
+          <End Role="P_Seizoen" Type="Self.P_Seizoen" Multiplicity="1" />
+          <End Role="P_Verschijning" Type="Self.P_Verschijning" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="P_Seizoen">
+              <PropertyRef Name="Seizoen_id" />
+            </Principal>
+            <Dependent Role="P_Verschijning">
+              <PropertyRef Name="Seizoen_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AnimeModel" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="P_Adaptatie" EntityType="Self.P_Adaptatie" />
+          <EntitySet Name="P_Aflevering" EntityType="Self.P_Aflevering" />
+          <EntitySet Name="P_Auteur" EntityType="Self.P_Auteur" />
+          <EntitySet Name="P_Genre" EntityType="Self.P_Genre" />
+          <EntitySet Name="P_Genre_Lijst_Manga" EntityType="Self.P_Genre_Lijst_Manga" />
+          <EntitySet Name="P_Genre_lijstAnime" EntityType="Self.P_Genre_lijstAnime" />
+          <EntitySet Name="P_Geslacht" EntityType="Self.P_Geslacht" />
+          <EntitySet Name="P_Manga" EntityType="Self.P_Manga" />
+          <EntitySet Name="P_Personage" EntityType="Self.P_Personage" />
+          <EntitySet Name="P_Rol" EntityType="Self.P_Rol" />
+          <EntitySet Name="P_Seizoen" EntityType="Self.P_Seizoen" />
+          <EntitySet Name="P_Stemacteur" EntityType="Self.P_Stemacteur" />
+          <EntitySet Name="P_Studio" EntityType="Self.P_Studio" />
+          <EntitySet Name="P_Verschijning" EntityType="Self.P_Verschijning" />
+          <AssociationSet Name="FK_P_Adaptatie_P_Manga" Association="Self.FK_P_Adaptatie_P_Manga">
+            <End Role="P_Manga" EntitySet="P_Manga" />
+            <End Role="P_Adaptatie" EntitySet="P_Adaptatie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P_Adaptatie_P_Seizoen" Association="Self.FK_P_Adaptatie_P_Seizoen">
+            <End Role="P_Seizoen" EntitySet="P_Seizoen" />
+            <End Role="P_Adaptatie" EntitySet="P_Adaptatie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P_Seizoen_P_Aflevering" Association="Self.FK_P_Seizoen_P_Aflevering">
+            <End Role="P_Seizoen" EntitySet="P_Seizoen" />
+            <End Role="P_Aflevering" EntitySet="P_Aflevering" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P_Auteur_P_Geslacht" Association="Self.FK_P_Auteur_P_Geslacht">
+            <End Role="P_Geslacht" EntitySet="P_Geslacht" />
+            <End Role="P_Auteur" EntitySet="P_Auteur" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P_Manga_P_Auteur" Association="Self.FK_P_Manga_P_Auteur">
+            <End Role="P_Auteur" EntitySet="P_Auteur" />
+            <End Role="P_Manga" EntitySet="P_Manga" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P_Genre_Lijst_Manga_P_Genre" Association="Self.FK_P_Genre_Lijst_Manga_P_Genre">
+            <End Role="P_Genre" EntitySet="P_Genre" />
+            <End Role="P_Genre_Lijst_Manga" EntitySet="P_Genre_Lijst_Manga" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P_Genre_lijstAnime_P_Genre" Association="Self.FK_P_Genre_lijstAnime_P_Genre">
+            <End Role="P_Genre" EntitySet="P_Genre" />
+            <End Role="P_Genre_lijstAnime" EntitySet="P_Genre_lijstAnime" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P_Genre_Lijst_Manga_P_Manga" Association="Self.FK_P_Genre_Lijst_Manga_P_Manga">
+            <End Role="P_Manga" EntitySet="P_Manga" />
+            <End Role="P_Genre_Lijst_Manga" EntitySet="P_Genre_Lijst_Manga" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P_Genre_lijstAnime_P_Seizoen" Association="Self.FK_P_Genre_lijstAnime_P_Seizoen">
+            <End Role="P_Seizoen" EntitySet="P_Seizoen" />
+            <End Role="P_Genre_lijstAnime" EntitySet="P_Genre_lijstAnime" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P_Personage_P_Geslacht" Association="Self.FK_P_Personage_P_Geslacht">
+            <End Role="P_Geslacht" EntitySet="P_Geslacht" />
+            <End Role="P_Personage" EntitySet="P_Personage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P_Stemacteur_P_Geslacht" Association="Self.FK_P_Stemacteur_P_Geslacht">
+            <End Role="P_Geslacht" EntitySet="P_Geslacht" />
+            <End Role="P_Stemacteur" EntitySet="P_Stemacteur" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P_Personage_P_Stemacteur" Association="Self.FK_P_Personage_P_Stemacteur">
+            <End Role="P_Stemacteur" EntitySet="P_Stemacteur" />
+            <End Role="P_Personage" EntitySet="P_Personage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P_Verschijning_P_Personage" Association="Self.FK_P_Verschijning_P_Personage">
+            <End Role="P_Personage" EntitySet="P_Personage" />
+            <End Role="P_Verschijning" EntitySet="P_Verschijning" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P_Verschijning_P_Rol" Association="Self.FK_P_Verschijning_P_Rol">
+            <End Role="P_Rol" EntitySet="P_Rol" />
+            <End Role="P_Verschijning" EntitySet="P_Verschijning" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P_Seizoen_P_Seizoen" Association="Self.FK_P_Seizoen_P_Seizoen">
+            <End Role="P_Seizoen" EntitySet="P_Seizoen" />
+            <End Role="P_Seizoen1" EntitySet="P_Seizoen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P_Seizoen_P_Studio" Association="Self.FK_P_Seizoen_P_Studio">
+            <End Role="P_Studio" EntitySet="P_Studio" />
+            <End Role="P_Seizoen" EntitySet="P_Seizoen" />
+          </AssociationSet>
+          <AssociationSet Name="FK_P_Verschijning_P_Seizoen" Association="Self.FK_P_Verschijning_P_Seizoen">
+            <End Role="P_Seizoen" EntitySet="P_Seizoen" />
+            <End Role="P_Verschijning" EntitySet="P_Verschijning" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AnimeEntitiesStoreContainer" CdmEntityContainer="AnimeModel">
+          <EntitySetMapping Name="P_Adaptatie">
+            <EntityTypeMapping TypeName="AnimeEntities.P_Adaptatie">
+              <MappingFragment StoreEntitySet="P_Adaptatie">
+                <ScalarProperty Name="Adaptatie_id" ColumnName="Adaptatie_id" />
+                <ScalarProperty Name="Manga_id" ColumnName="Manga_id" />
+                <ScalarProperty Name="Seizoen_id" ColumnName="Seizoen_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="P_Aflevering">
+            <EntityTypeMapping TypeName="AnimeEntities.P_Aflevering">
+              <MappingFragment StoreEntitySet="P_Aflevering">
+                <ScalarProperty Name="Aflevering_id" ColumnName="Aflevering_id" />
+                <ScalarProperty Name="Seizoen_id" ColumnName="Seizoen_id" />
+                <ScalarProperty Name="Naam" ColumnName="Naam" />
+                <ScalarProperty Name="Airdatum" ColumnName="Airdatum" />
+                <ScalarProperty Name="Speelduur" ColumnName="Speelduur" />
+                <ScalarProperty Name="Omschrijving" ColumnName="Omschrijving" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="P_Auteur">
+            <EntityTypeMapping TypeName="AnimeEntities.P_Auteur">
+              <MappingFragment StoreEntitySet="P_Auteur">
+                <ScalarProperty Name="Naam" ColumnName="Naam" />
+                <ScalarProperty Name="Auteur_id" ColumnName="Auteur_id" />
+                <ScalarProperty Name="Voornaam" ColumnName="Voornaam" />
+                <ScalarProperty Name="Geboortedatum" ColumnName="Geboortedatum" />
+                <ScalarProperty Name="Geslacht_id" ColumnName="Geslacht_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="P_Genre">
+            <EntityTypeMapping TypeName="AnimeEntities.P_Genre">
+              <MappingFragment StoreEntitySet="P_Genre">
+                <ScalarProperty Name="Genre_ID" ColumnName="Genre_ID" />
+                <ScalarProperty Name="Naam" ColumnName="Naam" />
+                <ScalarProperty Name="Omschrijving" ColumnName="Omschrijving" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="P_Genre_Lijst_Manga">
+            <EntityTypeMapping TypeName="AnimeEntities.P_Genre_Lijst_Manga">
+              <MappingFragment StoreEntitySet="P_Genre_Lijst_Manga">
+                <ScalarProperty Name="Genrelijstmanga_ID" ColumnName="Genrelijstmanga_ID" />
+                <ScalarProperty Name="Manga_id" ColumnName="Manga_id" />
+                <ScalarProperty Name="Genre_id" ColumnName="Genre_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="P_Genre_lijstAnime">
+            <EntityTypeMapping TypeName="AnimeEntities.P_Genre_lijstAnime">
+              <MappingFragment StoreEntitySet="P_Genre_lijstAnime">
+                <ScalarProperty Name="GenreLijst_id" ColumnName="GenreLijst_id" />
+                <ScalarProperty Name="Genre_id" ColumnName="Genre_id" />
+                <ScalarProperty Name="Seizoen_id" ColumnName="Seizoen_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="P_Geslacht">
+            <EntityTypeMapping TypeName="AnimeEntities.P_Geslacht">
+              <MappingFragment StoreEntitySet="P_Geslacht">
+                <ScalarProperty Name="Geslacht_id" ColumnName="Geslacht_id" />
+                <ScalarProperty Name="Naam" ColumnName="Naam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="P_Manga">
+            <EntityTypeMapping TypeName="AnimeEntities.P_Manga">
+              <MappingFragment StoreEntitySet="P_Manga">
+                <ScalarProperty Name="Manga_id" ColumnName="Manga_id" />
+                <ScalarProperty Name="Auteur_id" ColumnName="Auteur_id" />
+                <ScalarProperty Name="Naam" ColumnName="Naam" />
+                <ScalarProperty Name="StartPublishdatum" ColumnName="StartPublishdatum" />
+                <ScalarProperty Name="EindePublishDatum" ColumnName="EindePublishDatum" />
+                <ScalarProperty Name="Omschrijving" ColumnName="Omschrijving" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="P_Personage">
+            <EntityTypeMapping TypeName="AnimeEntities.P_Personage">
+              <MappingFragment StoreEntitySet="P_Personage">
+                <ScalarProperty Name="Personage_id" ColumnName="Personage_id" />
+                <ScalarProperty Name="Naam" ColumnName="Naam" />
+                <ScalarProperty Name="Stemacteur_id" ColumnName="Stemacteur_id" />
+                <ScalarProperty Name="Geslacht_id" ColumnName="Geslacht_id" />
+                <ScalarProperty Name="Omschrijving" ColumnName="Omschrijving" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="P_Rol">
+            <EntityTypeMapping TypeName="AnimeEntities.P_Rol">
+              <MappingFragment StoreEntitySet="P_Rol">
+                <ScalarProperty Name="Rol_ID" ColumnName="Rol_ID" />
+                <ScalarProperty Name="Naam" ColumnName="Naam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="P_Seizoen">
+            <EntityTypeMapping TypeName="AnimeEntities.P_Seizoen">
+              <MappingFragment StoreEntitySet="P_Seizoen">
+                <ScalarProperty Name="Seizoen_id" ColumnName="Seizoen_id" />
+                <ScalarProperty Name="Vervolg_id" ColumnName="Vervolg_id" />
+                <ScalarProperty Name="Studio_id" ColumnName="Studio_id" />
+                <ScalarProperty Name="Naam" ColumnName="Naam" />
+                <ScalarProperty Name="Begindatum_uitzending" ColumnName="Begindatum_uitzending" />
+                <ScalarProperty Name="Einddatum_uitzending" ColumnName="Einddatum_uitzending" />
+                <ScalarProperty Name="Omschrijving" ColumnName="Omschrijving" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="P_Stemacteur">
+            <EntityTypeMapping TypeName="AnimeEntities.P_Stemacteur">
+              <MappingFragment StoreEntitySet="P_Stemacteur">
+                <ScalarProperty Name="Stemacteur_id" ColumnName="Stemacteur_id" />
+                <ScalarProperty Name="Naam" ColumnName="Naam" />
+                <ScalarProperty Name="Voornaam" ColumnName="Voornaam" />
+                <ScalarProperty Name="Geboortedatum" ColumnName="Geboortedatum" />
+                <ScalarProperty Name="Geslacht_id" ColumnName="Geslacht_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="P_Studio">
+            <EntityTypeMapping TypeName="AnimeEntities.P_Studio">
+              <MappingFragment StoreEntitySet="P_Studio">
+                <ScalarProperty Name="Studio_id" ColumnName="Studio_id" />
+                <ScalarProperty Name="Naam" ColumnName="Naam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="P_Verschijning">
+            <EntityTypeMapping TypeName="AnimeEntities.P_Verschijning">
+              <MappingFragment StoreEntitySet="P_Verschijning">
+                <ScalarProperty Name="Verschijning_id" ColumnName="Verschijning_id" />
+                <ScalarProperty Name="Personage_id" ColumnName="Personage_id" />
+                <ScalarProperty Name="Seizoen_id" ColumnName="Seizoen_id" />
+                <ScalarProperty Name="Rol_id" ColumnName="Rol_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
