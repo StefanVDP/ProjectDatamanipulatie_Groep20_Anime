@@ -17,7 +17,7 @@ namespace ProjectDatamanipulatieAnime_DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public P_Manga()
         {
-            this.P_Adaptatie = new HashSet<P_Adaptatie>();
+            this.P_Adaptaties = new HashSet<P_Adaptatie>();
             this.P_Genre_Lijst_Manga = new HashSet<P_Genre_Lijst_Manga>();
         }
     
@@ -29,7 +29,7 @@ namespace ProjectDatamanipulatieAnime_DAL
         public string Omschrijving { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<P_Adaptatie> P_Adaptatie { get; set; }
+        public virtual ICollection<P_Adaptatie> P_Adaptaties { get; set; }
         public virtual P_Auteur P_Auteur { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<P_Genre_Lijst_Manga> P_Genre_Lijst_Manga { get; set; }

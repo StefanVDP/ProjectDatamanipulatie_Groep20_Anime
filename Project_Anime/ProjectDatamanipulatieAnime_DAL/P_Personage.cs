@@ -17,7 +17,7 @@ namespace ProjectDatamanipulatieAnime_DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public P_Personage()
         {
-            this.P_Verschijning = new HashSet<P_Verschijning>();
+            this.P_Verschijningen = new HashSet<P_Verschijning>();
         }
     
         public int Personage_id { get; set; }
@@ -29,6 +29,6 @@ namespace ProjectDatamanipulatieAnime_DAL
         public virtual P_Geslacht P_Geslacht { get; set; }
         public virtual P_Stemacteur P_Stemacteur { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<P_Verschijning> P_Verschijning { get; set; }
+        public virtual ICollection<P_Verschijning> P_Verschijningen { get; set; }
     }
 }

@@ -17,7 +17,7 @@ namespace ProjectDatamanipulatieAnime_DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public P_Stemacteur()
         {
-            this.P_Personage = new HashSet<P_Personage>();
+            this.P_Personages = new HashSet<P_Personage>();
         }
     
         public int Stemacteur_id { get; set; }
@@ -28,6 +28,6 @@ namespace ProjectDatamanipulatieAnime_DAL
     
         public virtual P_Geslacht P_Geslacht { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<P_Personage> P_Personage { get; set; }
+        public virtual ICollection<P_Personage> P_Personages { get; set; }
     }
 }

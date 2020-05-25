@@ -456,7 +456,7 @@
           <Property Name="Geboortedatum" Type="DateTime" Precision="0" />
           <Property Name="Geslacht_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="P_Geslacht" Relationship="Self.FK_P_Auteur_P_Geslacht" FromRole="P_Auteur" ToRole="P_Geslacht" />
-          <NavigationProperty Name="P_Manga" Relationship="Self.FK_P_Manga_P_Auteur" FromRole="P_Auteur" ToRole="P_Manga" />
+          <NavigationProperty Name="P_Mangas" Relationship="Self.FK_P_Manga_P_Auteur" FromRole="P_Auteur" ToRole="P_Manga" />
         </EntityType>
         <EntityType Name="P_Genre">
           <Key>
@@ -465,8 +465,8 @@
           <Property Name="Genre_ID" Type="Int32" Nullable="false" />
           <Property Name="Naam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="Omschrijving" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="P_Genre_Lijst_Manga" Relationship="Self.FK_P_Genre_Lijst_Manga_P_Genre" FromRole="P_Genre" ToRole="P_Genre_Lijst_Manga" />
-          <NavigationProperty Name="P_Genre_lijstAnime" Relationship="Self.FK_P_Genre_lijstAnime_P_Genre" FromRole="P_Genre" ToRole="P_Genre_lijstAnime" />
+          <NavigationProperty Name="P_Genre_Lijsten_Manga" Relationship="Self.FK_P_Genre_Lijst_Manga_P_Genre" FromRole="P_Genre" ToRole="P_Genre_Lijst_Manga" />
+          <NavigationProperty Name="P_Genre_lijstenAnime" Relationship="Self.FK_P_Genre_lijstAnime_P_Genre" FromRole="P_Genre" ToRole="P_Genre_lijstAnime" />
         </EntityType>
         <EntityType Name="P_Genre_Lijst_Manga">
           <Key>
@@ -494,9 +494,9 @@
           </Key>
           <Property Name="Geslacht_id" Type="Int32" Nullable="false" />
           <Property Name="Naam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="P_Auteur" Relationship="Self.FK_P_Auteur_P_Geslacht" FromRole="P_Geslacht" ToRole="P_Auteur" />
-          <NavigationProperty Name="P_Personage" Relationship="Self.FK_P_Personage_P_Geslacht" FromRole="P_Geslacht" ToRole="P_Personage" />
-          <NavigationProperty Name="P_Stemacteur" Relationship="Self.FK_P_Stemacteur_P_Geslacht" FromRole="P_Geslacht" ToRole="P_Stemacteur" />
+          <NavigationProperty Name="P_Auteurs" Relationship="Self.FK_P_Auteur_P_Geslacht" FromRole="P_Geslacht" ToRole="P_Auteur" />
+          <NavigationProperty Name="P_Personages" Relationship="Self.FK_P_Personage_P_Geslacht" FromRole="P_Geslacht" ToRole="P_Personage" />
+          <NavigationProperty Name="P_Stemacteurs" Relationship="Self.FK_P_Stemacteur_P_Geslacht" FromRole="P_Geslacht" ToRole="P_Stemacteur" />
         </EntityType>
         <EntityType Name="P_Manga">
           <Key>
@@ -508,7 +508,7 @@
           <Property Name="StartPublishdatum" Type="DateTime" Precision="0" />
           <Property Name="EindePublishDatum" Type="DateTime" Precision="0" />
           <Property Name="Omschrijving" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="P_Adaptatie" Relationship="Self.FK_P_Adaptatie_P_Manga" FromRole="P_Manga" ToRole="P_Adaptatie" />
+          <NavigationProperty Name="P_Adaptaties" Relationship="Self.FK_P_Adaptatie_P_Manga" FromRole="P_Manga" ToRole="P_Adaptatie" />
           <NavigationProperty Name="P_Auteur" Relationship="Self.FK_P_Manga_P_Auteur" FromRole="P_Manga" ToRole="P_Auteur" />
           <NavigationProperty Name="P_Genre_Lijst_Manga" Relationship="Self.FK_P_Genre_Lijst_Manga_P_Manga" FromRole="P_Manga" ToRole="P_Genre_Lijst_Manga" />
         </EntityType>
@@ -523,7 +523,7 @@
           <Property Name="Omschrijving" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="P_Geslacht" Relationship="Self.FK_P_Personage_P_Geslacht" FromRole="P_Personage" ToRole="P_Geslacht" />
           <NavigationProperty Name="P_Stemacteur" Relationship="Self.FK_P_Personage_P_Stemacteur" FromRole="P_Personage" ToRole="P_Stemacteur" />
-          <NavigationProperty Name="P_Verschijning" Relationship="Self.FK_P_Verschijning_P_Personage" FromRole="P_Personage" ToRole="P_Verschijning" />
+          <NavigationProperty Name="P_Verschijningen" Relationship="Self.FK_P_Verschijning_P_Personage" FromRole="P_Personage" ToRole="P_Verschijning" />
         </EntityType>
         <EntityType Name="P_Rol">
           <Key>
@@ -531,7 +531,7 @@
           </Key>
           <Property Name="Rol_ID" Type="Int32" Nullable="false" />
           <Property Name="Naam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="P_Verschijning" Relationship="Self.FK_P_Verschijning_P_Rol" FromRole="P_Rol" ToRole="P_Verschijning" />
+          <NavigationProperty Name="P_Verschijningen" Relationship="Self.FK_P_Verschijning_P_Rol" FromRole="P_Rol" ToRole="P_Verschijning" />
         </EntityType>
         <EntityType Name="P_Seizoen">
           <Key>
@@ -544,13 +544,13 @@
           <Property Name="Begindatum_uitzending" Type="DateTime" Precision="0" />
           <Property Name="Einddatum_uitzending" Type="DateTime" Precision="0" />
           <Property Name="Omschrijving" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="P_Adaptatie" Relationship="Self.FK_P_Adaptatie_P_Seizoen" FromRole="P_Seizoen" ToRole="P_Adaptatie" />
-          <NavigationProperty Name="P_Aflevering" Relationship="Self.FK_P_Seizoen_P_Aflevering" FromRole="P_Seizoen" ToRole="P_Aflevering" />
-          <NavigationProperty Name="P_Genre_lijstAnime" Relationship="Self.FK_P_Genre_lijstAnime_P_Seizoen" FromRole="P_Seizoen" ToRole="P_Genre_lijstAnime" />
-          <NavigationProperty Name="P_Seizoen1" Relationship="Self.FK_P_Seizoen_P_Seizoen" FromRole="P_Seizoen" ToRole="P_Seizoen1" />
-          <NavigationProperty Name="P_Seizoen2" Relationship="Self.FK_P_Seizoen_P_Seizoen" FromRole="P_Seizoen1" ToRole="P_Seizoen" />
+          <NavigationProperty Name="P_Adaptaties" Relationship="Self.FK_P_Adaptatie_P_Seizoen" FromRole="P_Seizoen" ToRole="P_Adaptatie" />
+          <NavigationProperty Name="P_Afleveringen" Relationship="Self.FK_P_Seizoen_P_Aflevering" FromRole="P_Seizoen" ToRole="P_Aflevering" />
+          <NavigationProperty Name="P_Genre_lijstenAnime" Relationship="Self.FK_P_Genre_lijstAnime_P_Seizoen" FromRole="P_Seizoen" ToRole="P_Genre_lijstAnime" />
+          <NavigationProperty Name="P_Seizoenen" Relationship="Self.FK_P_Seizoen_P_Seizoen" FromRole="P_Seizoen" ToRole="P_Seizoen1" />
+          <NavigationProperty Name="P_Seizoen1" Relationship="Self.FK_P_Seizoen_P_Seizoen" FromRole="P_Seizoen1" ToRole="P_Seizoen" />
           <NavigationProperty Name="P_Studio" Relationship="Self.FK_P_Seizoen_P_Studio" FromRole="P_Seizoen" ToRole="P_Studio" />
-          <NavigationProperty Name="P_Verschijning" Relationship="Self.FK_P_Verschijning_P_Seizoen" FromRole="P_Seizoen" ToRole="P_Verschijning" />
+          <NavigationProperty Name="P_Verschijningen" Relationship="Self.FK_P_Verschijning_P_Seizoen" FromRole="P_Seizoen" ToRole="P_Verschijning" />
         </EntityType>
         <EntityType Name="P_Stemacteur">
           <Key>
@@ -562,7 +562,7 @@
           <Property Name="Geboortedatum" Type="DateTime" Precision="0" />
           <Property Name="Geslacht_id" Type="Int32" />
           <NavigationProperty Name="P_Geslacht" Relationship="Self.FK_P_Stemacteur_P_Geslacht" FromRole="P_Stemacteur" ToRole="P_Geslacht" />
-          <NavigationProperty Name="P_Personage" Relationship="Self.FK_P_Personage_P_Stemacteur" FromRole="P_Stemacteur" ToRole="P_Personage" />
+          <NavigationProperty Name="P_Personages" Relationship="Self.FK_P_Personage_P_Stemacteur" FromRole="P_Stemacteur" ToRole="P_Personage" />
         </EntityType>
         <EntityType Name="P_Studio">
           <Key>
@@ -570,7 +570,7 @@
           </Key>
           <Property Name="Studio_id" Type="Int32" Nullable="false" />
           <Property Name="Naam" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="P_Seizoen" Relationship="Self.FK_P_Seizoen_P_Studio" FromRole="P_Studio" ToRole="P_Seizoen" />
+          <NavigationProperty Name="P_Seizoenen" Relationship="Self.FK_P_Seizoen_P_Studio" FromRole="P_Studio" ToRole="P_Seizoen" />
         </EntityType>
         <EntityType Name="P_Verschijning">
           <Key>

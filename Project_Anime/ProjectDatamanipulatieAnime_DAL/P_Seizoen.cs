@@ -17,11 +17,11 @@ namespace ProjectDatamanipulatieAnime_DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public P_Seizoen()
         {
-            this.P_Adaptatie = new HashSet<P_Adaptatie>();
-            this.P_Aflevering = new HashSet<P_Aflevering>();
-            this.P_Genre_lijstAnime = new HashSet<P_Genre_lijstAnime>();
-            this.P_Seizoen1 = new HashSet<P_Seizoen>();
-            this.P_Verschijning = new HashSet<P_Verschijning>();
+            this.P_Adaptaties = new HashSet<P_Adaptatie>();
+            this.P_Afleveringen = new HashSet<P_Aflevering>();
+            this.P_Genre_lijstenAnime = new HashSet<P_Genre_lijstAnime>();
+            this.P_Seizoenen = new HashSet<P_Seizoen>();
+            this.P_Verschijningen = new HashSet<P_Verschijning>();
         }
     
         public int Seizoen_id { get; set; }
@@ -33,16 +33,16 @@ namespace ProjectDatamanipulatieAnime_DAL
         public string Omschrijving { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<P_Adaptatie> P_Adaptatie { get; set; }
+        public virtual ICollection<P_Adaptatie> P_Adaptaties { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<P_Aflevering> P_Aflevering { get; set; }
+        public virtual ICollection<P_Aflevering> P_Afleveringen { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<P_Genre_lijstAnime> P_Genre_lijstAnime { get; set; }
+        public virtual ICollection<P_Genre_lijstAnime> P_Genre_lijstenAnime { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<P_Seizoen> P_Seizoen1 { get; set; }
-        public virtual P_Seizoen P_Seizoen2 { get; set; }
+        public virtual ICollection<P_Seizoen> P_Seizoenen { get; set; }
+        public virtual P_Seizoen P_Seizoen1 { get; set; }
         public virtual P_Studio P_Studio { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<P_Verschijning> P_Verschijning { get; set; }
+        public virtual ICollection<P_Verschijning> P_Verschijningen { get; set; }
     }
 }

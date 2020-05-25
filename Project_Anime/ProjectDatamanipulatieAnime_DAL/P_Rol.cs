@@ -17,13 +17,13 @@ namespace ProjectDatamanipulatieAnime_DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public P_Rol()
         {
-            this.P_Verschijning = new HashSet<P_Verschijning>();
+            this.P_Verschijningen = new HashSet<P_Verschijning>();
         }
     
         public int Rol_ID { get; set; }
         public string Naam { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<P_Verschijning> P_Verschijning { get; set; }
+        public virtual ICollection<P_Verschijning> P_Verschijningen { get; set; }
     }
 }

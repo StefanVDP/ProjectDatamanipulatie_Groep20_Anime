@@ -17,13 +17,13 @@ namespace ProjectDatamanipulatieAnime_DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public P_Studio()
         {
-            this.P_Seizoen = new HashSet<P_Seizoen>();
+            this.P_Seizoenen = new HashSet<P_Seizoen>();
         }
     
         public int Studio_id { get; set; }
         public string Naam { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<P_Seizoen> P_Seizoen { get; set; }
+        public virtual ICollection<P_Seizoen> P_Seizoenen { get; set; }
     }
 }
