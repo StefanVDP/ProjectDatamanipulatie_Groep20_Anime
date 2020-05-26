@@ -12,7 +12,7 @@
         <EntityTypeShape EntityType="AnimeEntities.P_Genre_Lijst_Manga" Width="1.875" PointX="5.5" PointY="13" IsExpanded="true" />
         <EntityTypeShape EntityType="AnimeEntities.P_Genre_lijstAnime" Width="2.125" PointX="12.125" PointY="13.5" IsExpanded="true" />
         <EntityTypeShape EntityType="AnimeEntities.P_Geslacht" Width="1.5" PointX="1.5" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="AnimeEntities.P_Manga" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnimeEntities.P_Manga" Width="2.125" PointX="2.125" PointY="12.5" IsExpanded="true" />
         <EntityTypeShape EntityType="AnimeEntities.P_Personage" Width="1.5" PointX="5.375" PointY="5.625" IsExpanded="true" />
         <EntityTypeShape EntityType="AnimeEntities.P_Rol" Width="1.5" PointX="4.375" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AnimeEntities.P_Seizoen" Width="2" PointX="9.125" PointY="9.125" IsExpanded="true" />

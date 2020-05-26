@@ -510,7 +510,7 @@
           <Property Name="Omschrijving" Type="String" MaxLength="8000" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="P_Adaptaties" Relationship="Self.FK_P_Adaptatie_P_Manga" FromRole="P_Manga" ToRole="P_Adaptatie" />
           <NavigationProperty Name="P_Auteur" Relationship="Self.FK_P_Manga_P_Auteur" FromRole="P_Manga" ToRole="P_Auteur" />
-          <NavigationProperty Name="P_Genre_Lijst_Manga" Relationship="Self.FK_P_Genre_Lijst_Manga_P_Manga" FromRole="P_Manga" ToRole="P_Genre_Lijst_Manga" />
+          <NavigationProperty Name="P_Genre_Lijsten_Manga" Relationship="Self.FK_P_Genre_Lijst_Manga_P_Manga" FromRole="P_Manga" ToRole="P_Genre_Lijst_Manga" />
         </EntityType>
         <EntityType Name="P_Personage">
           <Key>

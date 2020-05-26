@@ -18,7 +18,7 @@ namespace ProjectDatamanipulatieAnime_DAL
         public P_Manga()
         {
             this.P_Adaptaties = new HashSet<P_Adaptatie>();
-            this.P_Genre_Lijst_Manga = new HashSet<P_Genre_Lijst_Manga>();
+            this.P_Genre_Lijsten_Manga = new HashSet<P_Genre_Lijst_Manga>();
         }
     
         public int Manga_id { get; set; }
@@ -32,6 +32,6 @@ namespace ProjectDatamanipulatieAnime_DAL
         public virtual ICollection<P_Adaptatie> P_Adaptaties { get; set; }
         public virtual P_Auteur P_Auteur { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<P_Genre_Lijst_Manga> P_Genre_Lijst_Manga { get; set; }
+        public virtual ICollection<P_Genre_Lijst_Manga> P_Genre_Lijsten_Manga { get; set; }
     }
 }

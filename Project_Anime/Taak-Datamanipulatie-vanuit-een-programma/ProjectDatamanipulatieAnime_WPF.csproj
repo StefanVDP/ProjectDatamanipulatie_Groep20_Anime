@@ -139,6 +139,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProjectDatamanipulatieAnime_DAL\ProjectDatamanipulatieAnime_DAL.csproj">
+      <Project>{4ddbac46-c6f7-49af-91eb-2bc7988de1dc}</Project>
+      <Name>ProjectDatamanipulatieAnime_DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
