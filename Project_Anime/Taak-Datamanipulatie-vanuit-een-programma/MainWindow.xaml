@@ -35,7 +35,7 @@
         <Button x:Name="btnGenre" Grid.Column="4" Style="{StaticResource MaterialDesignRaisedDarkButton}"  Margin="10" Width="100" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Click="BtnGenre_Click">Genre</Button>
 
         <TextBlock Grid.ColumnSpan="5" Grid.Row="1" Margin="20" Padding="5" Background="#2979ff" TextWrapping="Wrap" FontFamily="Verdana" FontSize="16">Met deze applicatie kan je zoeken door een databank die allerlei Anime series bijhuid en de Manga die ze inspireerden.<LineBreak/><LineBreak/>Met de knoppen bovenaan kan je deze databank navigeren.<LineBreak/><LineBreak/>Met de knop onderaan deze pagina kan je een venster openen om gegeven toe te voegen, te wijzigen of te verwijderen.<LineBreak/><LineBreak/>Veel plezier!</TextBlock>
-        
+
         <Button x:Name="btnManage" Grid.Row="2" Grid.Column="0" Style="{StaticResource MaterialDesignRaisedDarkButton}"  Margin="10" Width="100" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Click="BtnManage_Click">Manage</Button>
     </Grid>
     

@@ -34,9 +34,9 @@
         <Button x:Name="btnIndustrie" Grid.Column="3" Style="{StaticResource MaterialDesignRaisedDarkButton}"  Margin="10" Width="100" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Click="BtnIndustrie_Click">Industrie</Button>
         <Button x:Name="btnGenre" Grid.Column="4" Style="{StaticResource MaterialDesignRaisedDarkButton}"  Margin="10" Width="100" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Click="BtnGenre_Click">Genre</Button>
 
-        <ComboBox x:Name="cmbManga" Margin="25,10,10,0" Grid.Row="1">Manga</ComboBox>
+        <ComboBox x:Name="cmbManga" Margin="25,10,10,0" Grid.Row="1" Loaded="cmbManga_Loaded" SelectionChanged="cmbManga_SelectionChanged">Manga</ComboBox>
 
-        <DataGrid Margin="25" ItemsSource="{Binding Items3}" CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False" materialDesign:DataGridAssist.CellPadding="13 8 8 8" materialDesign:DataGridAssist.ColumnHeaderPadding="8" Grid.Row="2" Grid.ColumnSpan="5">
+        <DataGrid x:Name="datagridSeizoenen" Margin="25" ItemsSource="{Binding Items3}" CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False" materialDesign:DataGridAssist.CellPadding="13 8 8 8" materialDesign:DataGridAssist.ColumnHeaderPadding="8" Grid.Row="2" Grid.ColumnSpan="5">
             <DataGrid.Columns>
                 <materialDesign:DataGridTextColumn Binding="{Binding Name}" Header="Naam" Width="auto" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
                 <materialDesign:DataGridTextColumn Binding="{Binding Auteur}" Header="Auteur" Width="auto" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
