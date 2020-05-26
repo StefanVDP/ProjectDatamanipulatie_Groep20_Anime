@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectDatamanipulatieAnime_DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -57,6 +58,11 @@ namespace ProjectDatamanipulatieAnime_WPF
             //Window Genre = new GenreWindow();
             //Genre.Show();
             //this.Close();
+        }
+
+        private void DataGrid_Initialized(object sender, EventArgs e)
+        {
+            datagridSeizoenen.ItemsSource = DatabaseOperations.OphalenSeizoenen();
         }
     }
 }

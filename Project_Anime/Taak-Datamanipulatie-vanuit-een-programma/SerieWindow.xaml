@@ -33,10 +33,10 @@
         <Button x:Name="btnIndustrie" Grid.Column="3" Style="{StaticResource MaterialDesignRaisedDarkButton}"  Margin="10" Width="100" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Click="BtnIndustrie_Click">Industrie</Button>
         <Button x:Name="btnGenre" Grid.Column="4" Style="{StaticResource MaterialDesignRaisedDarkButton}"  Margin="10" Width="100" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Click="BtnGenre_Click">Genre</Button>
 
-        <DataGrid Margin="25" ItemsSource="{Binding Items3}" CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False" materialDesign:DataGridAssist.CellPadding="13 8 8 8" materialDesign:DataGridAssist.ColumnHeaderPadding="8" Grid.Row="1" Grid.ColumnSpan="5">
+        <DataGrid x:Name="datagridSeizoenen" Margin="25" ItemsSource="{Binding Items3}" CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False" materialDesign:DataGridAssist.CellPadding="13 8 8 8" materialDesign:DataGridAssist.ColumnHeaderPadding="8" Grid.Row="1" Grid.ColumnSpan="5" Initialized="DataGrid_Initialized">
             <DataGrid.Columns>
-                <materialDesign:DataGridTextColumn Binding="{Binding Name}" Header="Naam" Width="auto" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
-                <materialDesign:DataGridTextColumn Binding="{Binding Studio}" Header="Studio" Width="auto" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                <materialDesign:DataGridTextColumn Binding="{Binding Naam}" Header="Naam" Width="auto" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                <materialDesign:DataGridTextColumn Binding="{Binding P_Studio.Naam}" Header="Studio" Width="auto" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
                 <!-- set a max length to get an indicator in the editor -->
 
                 <materialDesign:DataGridTextColumn Binding="{Binding Numeric}" Header="Aantal afleveringen" Width="auto" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
@@ -58,7 +58,7 @@
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </materialDesign:DataGridTextColumn>
-                <materialDesign:DataGridTextColumn Binding="{Binding Description}" Header="Omschrijving" Width="auto" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                <materialDesign:DataGridTextColumn Binding="{Binding Omschrijving}" Header="Omschrijving" Width="auto" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

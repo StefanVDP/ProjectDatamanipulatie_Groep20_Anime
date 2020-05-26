@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectDatamanipulatieAnime_DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -57,6 +58,16 @@ namespace ProjectDatamanipulatieAnime_WPF
             //Window Genre = new GenreWindow();
             //Genre.Show();
             //this.Close();
+        }
+
+        private void cmbManga_Loaded(object sender, RoutedEventArgs e)
+        {
+            cmbManga.ItemsSource = DatabaseOperations.OphalenMangaNamen();
+        }
+
+        private void cmbManga_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            datagridSeizoenen.ItemsSource = DatabaseOperations.OphalenMangaviaNaam(cmbManga.Text.ToString);
         }
     }
 }
