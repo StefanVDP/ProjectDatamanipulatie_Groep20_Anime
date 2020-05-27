@@ -68,6 +68,7 @@
         <DataGrid x:Name="datagridPersonages" Margin="25" ItemsSource="{Binding Items3}" CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False" materialDesign:DataGridAssist.CellPadding="13 8 8 8" materialDesign:DataGridAssist.ColumnHeaderPadding="8" Grid.Row="6" Grid.ColumnSpan="5">
             <DataGrid.Columns>
                 <materialDesign:DataGridTextColumn Binding="{Binding Naam}" Header="Naam personage" Width="auto" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                <materialDesign:DataGridTextColumn Binding="{Binding P_Geslacht.Naam}" Header="Geslacht" Width="auto" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

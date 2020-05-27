@@ -58,7 +58,8 @@ namespace ProjectDatamanipulatieAnime_DAL
                     using (AnimeModel entities = new AnimeModel())
                     {
                         var querypart = entities.P_Personage
-                            .Where(x => x.Personage_id == VerschijningPersonage.Personage_id);
+                            .Where(x => x.Personage_id == VerschijningPersonage.Personage_id)
+                            .Include("P_Geslacht");
                         query.AddRange(querypart);
                     }
                 }
