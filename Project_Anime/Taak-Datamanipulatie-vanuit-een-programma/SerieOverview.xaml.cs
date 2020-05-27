@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectDatamanipulatieAnime_DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,33 @@ namespace ProjectDatamanipulatieAnime_WPF
     /// </summary>
     public partial class SerieOverview : Window
     {
-        public SerieOverview()
+        public SerieOverview(P_Seizoen seizoen)
         {
             InitializeComponent();
+            datagridSeizoen.ItemsSource = DatabaseOperations.OphalenSeizoenviaID(seizoen.Seizoen_id);
+
+            lblAdaptieEnVoorloper.Content = "Adaptatie: " + Environment.NewLine;
+            List<P_Seizoen> Seizoen1 = DatabaseOperations.OphalenSeizoenviaID(seizoen.Seizoen_id);
+            foreach (P_Seizoen AdaptatieManga in Seizoen1)
+            {
+                foreach (var AdaptatieTitel in AdaptatieManga.P_Adaptaties)
+                {
+                    lblAdaptieEnVoorloper.Content += AdaptatieTitel.P_Manga.Naam + Environment.NewLine;
+                }
+            }
+            lblAdaptieEnVoorloper.Content += "Voorloper: " + Environment.NewLine;
+            List<P_Seizoen> Seizoen2 = DatabaseOperations.OphalenSeizoenviaID(seizoen.Seizoen_id);
+            foreach (P_Seizoen VoorloperSeizoen in Seizoen2)
+            {
+                foreach (var VoorloperTitel in VoorloperSeizoen.P_Seizoenen)
+                {
+                    lblAdaptieEnVoorloper.Content += VoorloperTitel.Naam + Environment.NewLine;
+                }
+            }
+
+            datagridRelaties.ItemsSource = DatabaseOperations.OphalenSeizoenviaID(seizoen.Seizoen_id);
+            datagridAfleveringen.ItemsSource = DatabaseOperations.OphalenAfleveringenviaSeizoenID(seizoen.Seizoen_id);
+            datagridPersonages.ItemsSource = DatabaseOperations.OphalenPersonagesviaSeizoenID(seizoen.Seizoen_id);
         }
 
         private void BtnHome_Click(object sender, RoutedEventArgs e)

@@ -67,7 +67,16 @@ namespace ProjectDatamanipulatieAnime_WPF
 
         private void btnSerieOverview_Click(object sender, RoutedEventArgs e)
         {
-
+            if (datagridSeizoenen.SelectedItem is P_Seizoen seizoen)
+            {
+                Window SeizoenOverview = new SerieOverview(seizoen);
+                SeizoenOverview.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Je hebt incorrect een seizoen geselecteerd.");
+            }
         }
     }
 }

@@ -86,5 +86,9 @@ namespace ProjectDatamanipulatieAnime_WPF
                 MessageBox.Show("Je hebt incorrect een titel geselecteerd.");
             }
         }
+        private void btnAuteur_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

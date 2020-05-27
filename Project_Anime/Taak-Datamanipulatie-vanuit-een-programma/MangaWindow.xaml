@@ -36,6 +36,7 @@
         <Button x:Name="btnGenre" Grid.Column="4" Style="{StaticResource MaterialDesignRaisedDarkButton}"  Margin="10" Width="100" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Click="BtnGenre_Click">Genre</Button>
 
         <ComboBox x:Name="cmbManga" DisplayMemberPath="Naam" materialDesign:HintAssist.Hint="Manga"  Margin="25,10,10,0" Grid.Row="1" SelectionChanged="cmbManga_SelectionChanged"/>
+        <Button x:Name="btnAuteur" Grid.Row="1" Grid.Column="1" Style="{StaticResource MaterialDesignRaisedDarkButton}"  Margin="10" Width="100" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Click="btnAuteur_Click" >Auteur</Button>
 
         <DataGrid x:Name="datagridManga" Margin="25" ItemsSource="{Binding Items3}" CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False" materialDesign:DataGridAssist.CellPadding="13 8 8 8" materialDesign:DataGridAssist.ColumnHeaderPadding="8" Grid.Row="2" Grid.ColumnSpan="5">
             <DataGrid.Columns>
