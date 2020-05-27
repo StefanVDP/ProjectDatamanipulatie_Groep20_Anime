@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.Entity;
 
 namespace ProjectDatamanipulatieAnime_WPF
 {
@@ -60,14 +61,30 @@ namespace ProjectDatamanipulatieAnime_WPF
             //this.Close();
         }
 
-        private void cmbManga_Loaded(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             cmbManga.ItemsSource = DatabaseOperations.OphalenMangaNamen();
         }
 
         private void cmbManga_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            datagridSeizoenen.ItemsSource = DatabaseOperations.OphalenMangaviaNaam(cmbManga.Text.ToString);
+            if (cmbManga.SelectedItem is P_Manga manga) 
+            {
+                lblGenre.Content = "Genres: " + Environment.NewLine;
+                List<P_Manga> Manga = DatabaseOperations.OphalenMangaviaMangaID(manga.Manga_id);
+                datagridManga.ItemsSource = Manga;
+                foreach (P_Manga geselecteerdeManga in Manga)
+                {
+                    foreach (var mangaGenre in geselecteerdeManga.P_Genre_Lijsten_Manga)
+                    {
+                        lblGenre.Content += mangaGenre.P_Genre.Naam + Environment.NewLine;
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Je hebt incorrect een titel geselecteerd.");
+            }
         }
     }
 }

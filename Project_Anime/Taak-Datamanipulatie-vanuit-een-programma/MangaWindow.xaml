@@ -13,9 +13,10 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="Manga" Height="362.575" Width="800">
+        Title="Manga" Height="362.575" Width="800" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition/>
@@ -34,17 +35,18 @@
         <Button x:Name="btnIndustrie" Grid.Column="3" Style="{StaticResource MaterialDesignRaisedDarkButton}"  Margin="10" Width="100" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Click="BtnIndustrie_Click">Industrie</Button>
         <Button x:Name="btnGenre" Grid.Column="4" Style="{StaticResource MaterialDesignRaisedDarkButton}"  Margin="10" Width="100" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Click="BtnGenre_Click">Genre</Button>
 
-        <ComboBox x:Name="cmbManga" Margin="25,10,10,0" Grid.Row="1" Loaded="cmbManga_Loaded" SelectionChanged="cmbManga_SelectionChanged">Manga</ComboBox>
+        <ComboBox x:Name="cmbManga" DisplayMemberPath="Naam" materialDesign:HintAssist.Hint="Manga"  Margin="25,10,10,0" Grid.Row="1" SelectionChanged="cmbManga_SelectionChanged"/>
 
-        <DataGrid x:Name="datagridSeizoenen" Margin="25" ItemsSource="{Binding Items3}" CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False" materialDesign:DataGridAssist.CellPadding="13 8 8 8" materialDesign:DataGridAssist.ColumnHeaderPadding="8" Grid.Row="2" Grid.ColumnSpan="5">
+        <DataGrid x:Name="datagridManga" Margin="25" ItemsSource="{Binding Items3}" CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False" materialDesign:DataGridAssist.CellPadding="13 8 8 8" materialDesign:DataGridAssist.ColumnHeaderPadding="8" Grid.Row="2" Grid.ColumnSpan="5">
             <DataGrid.Columns>
-                <materialDesign:DataGridTextColumn Binding="{Binding Name}" Header="Naam" Width="auto" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
-                <materialDesign:DataGridTextColumn Binding="{Binding Auteur}" Header="Auteur" Width="auto" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
-                <materialDesign:DataGridTextColumn Binding="{Binding Datums}" Header="Gepubliceerd" Width="auto" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
-                <materialDesign:DataGridTextColumn Binding="{Binding Genre}" Header="Genre" Width="auto" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
-                <materialDesign:DataGridTextColumn Binding="{Binding Description}" Header="Omschrijving" Width="auto" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                <materialDesign:DataGridTextColumn Binding="{Binding Naam}" Header="Naam" Width="auto" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                <materialDesign:DataGridTextColumn Binding="{Binding P_Auteur.Naam}" Header="Auteur" Width="auto" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                <materialDesign:DataGridTextColumn Binding="{Binding StartPublishdatum.Date}" Header="Gepubliceerd" Width="auto" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                <materialDesign:DataGridTextColumn Binding="{Binding Omschrijving}" Header="Omschrijving" Width="auto" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
             </DataGrid.Columns>
         </DataGrid>
+
+        <Label x:Name="lblGenre" Grid.ColumnSpan="5" Grid.Row="3" Height="100" Margin="20" Padding="5" Background="#2979ff" FontFamily="Verdana" FontSize="11">Genres: </Label>
     </Grid>
 
 </Window>

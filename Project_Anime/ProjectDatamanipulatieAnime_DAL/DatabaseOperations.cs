@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace ProjectDatamanipulatieAnime_DAL
 {
@@ -24,7 +26,9 @@ namespace ProjectDatamanipulatieAnime_DAL
             using (AnimeModel entities = new AnimeModel())
             {
                 var query = entities.P_Seizoen
-                    .Where(x => x.Seizoen_id == seizoenID);
+                    .Where(x => x.Seizoen_id == seizoenID)
+                    .Include("P_Seizoenen")
+                    .Include("P_Adaptaties");
                 return query.SingleOrDefault();
             }
         }
@@ -55,23 +59,25 @@ namespace ProjectDatamanipulatieAnime_DAL
                 return query.ToList();
             }
         }
-        public static List<string> OphalenMangaNamen()
+        public static List<P_Manga> OphalenMangaNamen()
         {
             using (AnimeModel entities = new AnimeModel())
             {
-                
-                var query = entities.P_Manga
-                    .Select(x => x.Naam);
-                return query.ToList();
+                return entities.P_Manga
+                    .OrderBy(x=> x.Naam)
+                    .ToList();
             }
         }
-        public static P_Manga OphalenMangaviaNaam(string naam)
+        public static List<P_Manga> OphalenMangaviaMangaID(int mangaID)
         {
             using (AnimeModel entities = new AnimeModel())
             {
-                var query = entities.P_Manga
-                    .Where(x => x.Naam == naam);
-                return query.SingleOrDefault();
+                return entities.P_Manga
+                    .Where(x => x.Manga_id == mangaID)
+                    .OrderBy(x => x.Naam)
+                    .Include("P_Auteur")
+                    .Include(x => x.P_Genre_Lijsten_Manga.Select(sub => sub.P_Genre))
+                    .ToList();
             }
         }
 

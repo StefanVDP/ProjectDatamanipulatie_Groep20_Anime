@@ -64,5 +64,10 @@ namespace ProjectDatamanipulatieAnime_WPF
         {
             datagridSeizoenen.ItemsSource = DatabaseOperations.OphalenSeizoenen();
         }
+
+        private void btnSerieOverview_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -17,6 +17,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -33,31 +34,12 @@
         <Button x:Name="btnIndustrie" Grid.Column="3" Style="{StaticResource MaterialDesignRaisedDarkButton}"  Margin="10" Width="100" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Click="BtnIndustrie_Click">Industrie</Button>
         <Button x:Name="btnGenre" Grid.Column="4" Style="{StaticResource MaterialDesignRaisedDarkButton}"  Margin="10" Width="100" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Click="BtnGenre_Click">Genre</Button>
 
-        <DataGrid x:Name="datagridSeizoenen" Margin="25" ItemsSource="{Binding Items3}" CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False" materialDesign:DataGridAssist.CellPadding="13 8 8 8" materialDesign:DataGridAssist.ColumnHeaderPadding="8" Grid.Row="1" Grid.ColumnSpan="5" Initialized="DataGrid_Initialized">
+        <Button x:Name="btnSerieOverview" Grid.Row="1" Grid.Column="0" Style="{StaticResource MaterialDesignRaisedDarkButton}"  Margin="10" Width="120" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Click="btnSerieOverview_Click">Open Seizoen</Button>
+
+        <DataGrid x:Name="datagridSeizoenen" Margin="25" ItemsSource="{Binding Items3}" CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False" materialDesign:DataGridAssist.CellPadding="13 8 8 8" materialDesign:DataGridAssist.ColumnHeaderPadding="8" Grid.Row="2" Grid.ColumnSpan="5" Initialized="DataGrid_Initialized">
             <DataGrid.Columns>
                 <materialDesign:DataGridTextColumn Binding="{Binding Naam}" Header="Naam" Width="auto" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
                 <materialDesign:DataGridTextColumn Binding="{Binding P_Studio.Naam}" Header="Studio" Width="auto" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
-                <!-- set a max length to get an indicator in the editor -->
-
-                <materialDesign:DataGridTextColumn Binding="{Binding Numeric}" Header="Aantal afleveringen" Width="auto" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}">
-                    <DataGridTextColumn.HeaderStyle>
-                        <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}">
-                            <Setter Property="HorizontalAlignment" Value="Right" />
-                            <Setter Property="ContentTemplate">
-                                <Setter.Value>
-                                    <DataTemplate>
-                                        <TextBlock TextWrapping="Wrap" Text="{Binding}" TextAlignment="Right" />
-                                    </DataTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </DataGridTextColumn.HeaderStyle>
-                    <DataGridTextColumn.ElementStyle>
-                        <Style TargetType="{x:Type TextBlock}">
-                            <Setter Property="HorizontalAlignment" Value="Right" />
-                        </Style>
-                    </DataGridTextColumn.ElementStyle>
-                </materialDesign:DataGridTextColumn>
                 <materialDesign:DataGridTextColumn Binding="{Binding Omschrijving}" Header="Omschrijving" Width="auto" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
             </DataGrid.Columns>
         </DataGrid>
