@@ -1,12 +1,47 @@
-﻿<Window x:Class="ProjectDatamanipulatieAnime_WPF.StemActeurWindow"
+﻿<Window x:Class="ProjectDatamanipulatieAnime_WPF.StemacteurWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectDatamanipulatieAnime_WPF"
         mc:Ignorable="d"
-        Title="StemActeurWindow" Height="450" Width="800">
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="Stemacteur" Height="362.575" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Background="#ff5722" Grid.ColumnSpan="5" Grid.Row="0"></Grid>
+        <Button x:Name="btnExit" Grid.Column="0" Style="{StaticResource MaterialDesignRaisedDarkButton}"  Margin="10" Width="100" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Click="BtnExit_Click">Exit</Button>
+        <Button x:Name="btnHome" Grid.Column="1" Style="{StaticResource MaterialDesignRaisedDarkButton}"  Margin="10" Width="100" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Click="BtnSeizoen_Click">Seizoen</Button>
+        <Button x:Name="btnManga" Grid.Column="2" Style="{StaticResource MaterialDesignRaisedDarkButton}"  Margin="10" Width="100" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Click="BtnManga_Click">Manga</Button>
+        <Button x:Name="btnIndustrie" Grid.Column="3" Style="{StaticResource MaterialDesignRaisedDarkButton}"  Margin="10" Width="100" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Click="BtnHome_Click">Home</Button>
+        <Button x:Name="btnGenre" Grid.Column="4" Style="{StaticResource MaterialDesignRaisedDarkButton}"  Margin="10" Width="100" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Click="BtnGenre_Click">Genre</Button>
+        <TextBlock x:Name="txtStemacteurInfo" Grid.ColumnSpan="1" Grid.Row="1" Grid.RowSpan="5" Margin="20" Padding="5" Background="#2979ff" TextWrapping="Wrap" FontFamily="Verdana" FontSize="16"/>
+
+        <DataGrid x:Name="datagridPersonageInfo" Margin="25" ItemsSource="{Binding Items3}" CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False" materialDesign:DataGridAssist.CellPadding="13 8 8 8" materialDesign:DataGridAssist.ColumnHeaderPadding="8" Grid.Row="1" Grid.ColumnSpan="5" Grid.Column="1">
+            <DataGrid.Columns>
+                <materialDesign:DataGridTextColumn Binding="{Binding Naam}" Header="Personage" Width="auto" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                <materialDesign:DataGridTextColumn Binding="{Binding P_Geslacht.Naam}" Header="Geslacht" Width="auto" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
     </Grid>
 </Window>
+
