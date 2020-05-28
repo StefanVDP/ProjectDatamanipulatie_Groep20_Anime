@@ -34,7 +34,46 @@ namespace ProjectDatamanipulatieAnime_DAL
                 return query.ToList();
             }
         }
+        public static List<P_Manga> OphalenMangaviaAuteurID(int AuteurID)
+        {
+            using (AnimeModel entities = new AnimeModel())
+            {
+                var query = entities.P_Manga
+                    .Where(x => x.Auteur_id == AuteurID);
+                return query.ToList();
+            }
+        }
+        public static List<P_Stemacteur> OphalenStemacteurviaPersonageID(int PersonageID)
+        {
+            using (AnimeModel StemacteurEntities = new AnimeModel())
+            {
+                List<P_Stemacteur> query = new List<P_Stemacteur>();
 
+                var verschijningquery = StemacteurEntities.P_Personage
+                    .Where(x => x.Personage_id == PersonageID);
+                foreach (P_Personage Personage in verschijningquery)
+                {
+                    using (AnimeModel entities = new AnimeModel())
+                    {
+                        var querypart = entities.P_Stemacteur
+                            .Where(x => x.Stemacteur_id == Personage.Stemacteur_id)
+                            .Include("P_Geslacht");
+                        query.AddRange(querypart);
+                    }
+                }
+                return query;
+            }
+        }
+        public static List<P_Personage> OphalenPersonageviaStemacteurID(int StemacteurID)
+        {
+            using (AnimeModel entities = new AnimeModel())
+            {
+                var query = entities.P_Personage
+                    .Where(x => x.Stemacteur_id == StemacteurID)
+                    .Include("P_Geslacht");
+                return query.ToList();
+            }
+        }
         public static List<P_Aflevering> OphalenAfleveringenviaSeizoenID(int seizoenID)
         {
             using (AnimeModel entities = new AnimeModel())

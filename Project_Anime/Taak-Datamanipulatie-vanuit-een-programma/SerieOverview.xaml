@@ -64,7 +64,7 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button x:Name="btnPersonage" Grid.Row="5" Grid.Column="0" Style="{StaticResource MaterialDesignRaisedDarkButton}"  Margin="10" Width="120" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton">Personage</Button>
+        <Button x:Name="btnPersonage" Grid.Row="5" Grid.Column="0" Style="{StaticResource MaterialDesignRaisedDarkButton}"  Margin="10" Width="120" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Click="btnPersonage_Click">Personage</Button>
 
         <DataGrid x:Name="datagridPersonages" Margin="25" ItemsSource="{Binding Items3}" CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False" materialDesign:DataGridAssist.CellPadding="13 8 8 8" materialDesign:DataGridAssist.ColumnHeaderPadding="8" Grid.Row="6" Grid.ColumnSpan="5">
             <DataGrid.Columns>

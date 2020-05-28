@@ -88,5 +88,20 @@ namespace ProjectDatamanipulatieAnime_WPF
             System.Windows.Application.Current.Shutdown();
 
         }
+
+        private void btnPersonage_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (datagridPersonages.SelectedItem is P_Personage personage)
+            {
+                Window SeizoenOverview = new PersonageWindow(personage);
+                SeizoenOverview.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Je hebt incorrect een seizoen geselecteerd.");
+            }
+        }
     }
 }

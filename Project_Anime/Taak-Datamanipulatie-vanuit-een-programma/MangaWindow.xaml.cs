@@ -92,6 +92,16 @@ namespace ProjectDatamanipulatieAnime_WPF
         private void btnAuteur_Click(object sender, RoutedEventArgs e)
         {
 
+            if (datagridManga.SelectedItem is P_Manga auteurmanga)
+            {
+                Window AutheurWindow = new AuteurWindow(auteurmanga);
+                AutheurWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Je hebt incorrect een seizoen geselecteerd.");
+            }
         }
     }
 }

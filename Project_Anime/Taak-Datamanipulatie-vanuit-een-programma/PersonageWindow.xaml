@@ -1,0 +1,52 @@
+﻿<Window x:Class="ProjectDatamanipulatieAnime_WPF.PersonageWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectDatamanipulatieAnime_WPF"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="Personage" Height="362.575" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Background="#ff5722" Grid.ColumnSpan="5" Grid.Row="0"></Grid>
+        <Button x:Name="btnExit" Grid.Column="0" Style="{StaticResource MaterialDesignRaisedDarkButton}"  Margin="10" Width="100" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Click="BtnExit_Click">Exit</Button>
+        <Button x:Name="btnHome" Grid.Column="1" Style="{StaticResource MaterialDesignRaisedDarkButton}"  Margin="10" Width="100" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Click="BtnSeizoen_Click">Seizoen</Button>
+        <Button x:Name="btnManga" Grid.Column="2" Style="{StaticResource MaterialDesignRaisedDarkButton}"  Margin="10" Width="100" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Click="BtnHome_Click">Home</Button>
+        <Button x:Name="btnIndustrie" Grid.Column="3" Style="{StaticResource MaterialDesignRaisedDarkButton}"  Margin="10" Width="100" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Click="BtnIndustrie_Click">Industrie</Button>
+        <Button x:Name="btnGenre" Grid.Column="4" Style="{StaticResource MaterialDesignRaisedDarkButton}"  Margin="10" Width="100" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Click="BtnGenre_Click">Genre</Button>
+        <TextBlock x:Name="txtPersonageInfo" Grid.Row="1" Grid.RowSpan="5" Margin="20" Padding="5" Background="#2979ff" TextWrapping="Wrap" FontFamily="Verdana" FontSize="16"></TextBlock>
+        <TextBlock x:Name="txtPersonageBeschrijving" Grid.Column="1"  Grid.ColumnSpan="4"  Grid.Row="1" Margin="20" Padding="5" Background="#2979ff" TextWrapping="Wrap" FontFamily="Verdana" FontSize="16"><LineBreak/><LineBreak/></TextBlock>
+        <DataGrid x:Name="datagridStemacteurInfo" Margin="25" ItemsSource="{Binding Items3}" CanUserSortColumns="True" CanUserAddRows="False" AutoGenerateColumns="False" materialDesign:DataGridAssist.CellPadding="13 8 8 8" materialDesign:DataGridAssist.ColumnHeaderPadding="8" Grid.Row="2" Grid.ColumnSpan="5" Grid.Column="1"  Grid.RowSpan="1" SelectionChanged="DataGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <materialDesign:DataGridTextColumn Binding="{Binding Voornaam}" Header="Stemacteur" Width="auto" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                <materialDesign:DataGridTextColumn Binding="{Binding Naam}" Header="" Width="auto" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                <materialDesign:DataGridTextColumn Binding="{Binding Geboortedatum}" Header="Geboortedatum" Width="auto" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+                <materialDesign:DataGridTextColumn Binding="{Binding P_Geslacht.Naam}" Header="Geslacht" Width="auto" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnStemacteur" Grid.Column="1" Grid.Row="3" Style="{StaticResource MaterialDesignRaisedDarkButton}"  Margin="10" Width="100" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Click="BtnStemacteur_Click">Stemacteur</Button>
+
+    </Grid>
+</Window>
+

@@ -71,8 +71,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AuteurWindow.xaml.cs">
+      <DependentUpon>AuteurWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MangaWindow.xaml.cs">
       <DependentUpon>MangaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PersonageWindow.xaml.cs">
+      <DependentUpon>PersonageWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="SerieOverview.xaml.cs">
       <DependentUpon>SerieOverview.xaml</DependentUpon>
@@ -83,6 +89,10 @@
     <Compile Include="StemActeurWindow.xaml.cs">
       <DependentUpon>StemActeurWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="AuteurWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -96,6 +106,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MangaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PersonageWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

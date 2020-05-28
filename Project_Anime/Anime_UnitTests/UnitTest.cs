@@ -66,7 +66,7 @@ namespace Anime_UnitTests
             ProjectlidVenster projectlidVenster = new ProjectlidVenster("naam", "voornaam", "woonplaats", "naamvenster");
 
             //Act
-            string result = projectlidVenster.ToString();
+            string result = "naamvenster was gemaakt door naam voornaam van woonplaats.";
 
             //Assert
             Assert.AreEqual(projectlidVenster.ToString(), result);

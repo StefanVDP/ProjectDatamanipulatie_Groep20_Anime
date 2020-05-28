@@ -17,18 +17,19 @@ using ProjectDatamanipulatieAnime_DAL;
 namespace ProjectDatamanipulatieAnime_WPF
 {
     /// <summary>
-    /// Interaction logic for StemacteurWindow.xaml
+    /// Interaction logic for PersonageWindow.xaml
     /// </summary>
-    public partial class StemacteurWindow : Window
+    public partial class PersonageWindow : Window
     {
-        public StemacteurWindow(P_Stemacteur stemacteur)
+        public PersonageWindow(P_Personage personage)
         {
             InitializeComponent();
-            datagridPersonageInfo.ItemsSource = DatabaseOperations.OphalenPersonageviaStemacteurID(stemacteur.Stemacteur_id);
 
-            txtStemacteurInfo.Text = "Naam: " + stemacteur.Voornaam + " " + stemacteur.Naam + Environment.NewLine + "Geslacht: " + stemacteur.P_Geslacht.Naam + Environment.NewLine + "Geboortedatum: " + stemacteur.Geboortedatum;
-
+            txtPersonageInfo.Text = "Naam: " + personage.Naam + Environment.NewLine + "Geslacht: " + personage.P_Geslacht.Naam;
+            txtPersonageBeschrijving.Text = "Beschrijving: " + personage.Omschrijving;
+            datagridStemacteurInfo.ItemsSource = DatabaseOperations.OphalenStemacteurviaPersonageID(personage.Stemacteur_id);
         }
+
         private void BtnExit_Click(object sender, RoutedEventArgs e)
         {
 
@@ -75,6 +76,25 @@ namespace ProjectDatamanipulatieAnime_WPF
             Window Home = new MainWindow();
             Home.Show();
             this.Close();
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void BtnStemacteur_Click(object sender, RoutedEventArgs e)
+        {
+            if (datagridStemacteurInfo.SelectedItem is P_Stemacteur stemacteur)
+            {
+                Window StemacteurWindow = new StemacteurWindow(stemacteur);
+                StemacteurWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Je hebt incorrect een seizoen geselecteerd.");
+            }
         }
     }
 }
