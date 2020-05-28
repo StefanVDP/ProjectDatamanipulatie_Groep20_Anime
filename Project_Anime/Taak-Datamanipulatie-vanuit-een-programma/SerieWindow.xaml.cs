@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ProjectDatamanipulatieAnime_Models;
 
 namespace ProjectDatamanipulatieAnime_WPF
 {
@@ -23,6 +24,8 @@ namespace ProjectDatamanipulatieAnime_WPF
         public SerieWindow()
         {
             InitializeComponent();
+            ProjectlidVenster creator = new ProjectlidVenster("Vandeputte", "Stefan", "Beerse", "De seizoen selectie pagina");
+            txtCredit.Text = creator.ToString();
         }
 
         private void BtnExit_Click(object sender, RoutedEventArgs e)

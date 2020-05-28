@@ -144,6 +144,10 @@
       <Project>{4ddbac46-c6f7-49af-91eb-2bc7988de1dc}</Project>
       <Name>ProjectDatamanipulatieAnime_DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ProjectDatamanipulatieAnime_Models\ProjectDatamanipulatieAnime_Models.csproj">
+      <Project>{3ae033c6-5f3d-4d57-8762-5b83e56f45eb}</Project>
+      <Name>ProjectDatamanipulatieAnime_Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

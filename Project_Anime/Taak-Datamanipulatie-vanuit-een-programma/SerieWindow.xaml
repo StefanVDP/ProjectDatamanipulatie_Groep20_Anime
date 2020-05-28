@@ -13,12 +13,13 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="Seizoenen" Height="362.575" Width="800">
+        Title="Seizoenen" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition/>
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -43,6 +44,8 @@
                 <materialDesign:DataGridTextColumn Binding="{Binding Omschrijving}" Header="Omschrijving" Width="auto" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
             </DataGrid.Columns>
         </DataGrid>
+
+        <TextBlock x:Name="txtCredit" Height="50" Grid.ColumnSpan="5" Grid.Row="3" Margin="5" Padding="5" Background="#2979ff" TextWrapping="Wrap" FontFamily="Verdana" FontSize="16"></TextBlock>
     </Grid>
 
 </Window>

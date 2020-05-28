@@ -12,17 +12,25 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ProjectDatamanipulatieAnime_Models;
 
 namespace ProjectDatamanipulatieAnime_WPF
 {
+    
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
+
+    
+
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+            ProjectlidVenster creator = new ProjectlidVenster("Vandeputte","Stefan","Beerse","De hoofdpagina");
+            txtCredit.Text = creator.ToString();
         }
 
         private void BtnExit_Click(object sender, RoutedEventArgs e)
