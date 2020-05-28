@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data.Entity;
+using ProjectDatamanipulatieAnime_Models;
 
 namespace ProjectDatamanipulatieAnime_WPF
 {
@@ -24,6 +25,8 @@ namespace ProjectDatamanipulatieAnime_WPF
         public MangaWindow()
         {
             InitializeComponent();
+            ProjectlidVenster creator = new ProjectlidVenster("Vandeputte", "Stefan", "Beerse", "Het Manga venster");
+            txtCredit.Text = creator.ToString();
         }
 
         private void BtnExit_Click(object sender, RoutedEventArgs e)

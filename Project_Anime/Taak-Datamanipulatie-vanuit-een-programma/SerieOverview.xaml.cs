@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ProjectDatamanipulatieAnime_Models;
 
 namespace ProjectDatamanipulatieAnime_WPF
 {
@@ -23,6 +24,10 @@ namespace ProjectDatamanipulatieAnime_WPF
         public SerieOverview(P_Seizoen seizoen)
         {
             InitializeComponent();
+
+            ProjectlidVenster creator = new ProjectlidVenster("Vandeputte", "Stefan", "Beerse", "De seizoen overview pagina");
+            txtCredit.Text = creator.ToString();
+
             datagridSeizoen.ItemsSource = DatabaseOperations.OphalenSeizoenviaID(seizoen.Seizoen_id);
 
             lblAdaptieEnVoorloper.Content = "Adaptatie: " + Environment.NewLine;

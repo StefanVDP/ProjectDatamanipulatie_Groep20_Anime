@@ -23,6 +23,7 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -71,6 +72,8 @@
                 <materialDesign:DataGridTextColumn Binding="{Binding P_Geslacht.Naam}" Header="Geslacht" Width="auto" EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnPopupEditingStyle}" />
             </DataGrid.Columns>
         </DataGrid>
+
+        <TextBlock x:Name="txtCredit" Height="50" Grid.ColumnSpan="5" Grid.Row="7" Margin="20" Padding="5" Background="#2979ff" TextWrapping="Wrap" FontFamily="Verdana" FontSize="16"></TextBlock>
     </Grid>
 
 </Window>
