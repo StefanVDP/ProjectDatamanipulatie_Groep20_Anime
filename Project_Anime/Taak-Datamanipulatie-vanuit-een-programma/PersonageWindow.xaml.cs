@@ -1,5 +1,4 @@
-﻿using ProjectDatamanipulatieAnime_DAL;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,20 +11,23 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using ProjectDatamanipulatieAnime_Models;
+using System.Data.SqlClient;
+using ProjectDatamanipulatieAnime_DAL;
 
 namespace ProjectDatamanipulatieAnime_WPF
 {
     /// <summary>
-    /// Interaction logic for SerieWindow.xaml
+    /// Interaction logic for PersonageWindow.xaml
     /// </summary>
-    public partial class SerieWindow : Window
+    public partial class PersonageWindow : Window
     {
-        public SerieWindow()
+        public PersonageWindow(P_Personage personage)
         {
             InitializeComponent();
-            ProjectlidVenster creator = new ProjectlidVenster("Vandeputte", "Stefan", "Beerse", "De seizoen selectie pagina");
-            txtCredit.Text = creator.ToString();
+
+            txtPersonageInfo.Text = "Naam: " + personage.Naam + Environment.NewLine + "Geslacht: " + personage.P_Geslacht.Naam;
+            txtPersonageBeschrijving.Text = "Beschrijving: " + personage.Omschrijving;
+            datagridStemacteurInfo.ItemsSource = DatabaseOperations.OphalenStemacteurviaPersonageID(personage.Stemacteur_id);
         }
 
         private void BtnExit_Click(object sender, RoutedEventArgs e)
@@ -35,10 +37,10 @@ namespace ProjectDatamanipulatieAnime_WPF
 
         }
 
-        private void BtnHome_Click(object sender, RoutedEventArgs e)
+        private void BtnSeizoen_Click(object sender, RoutedEventArgs e)
         {
-            Window Home = new MainWindow();
-            Home.Show();
+            Window Seizoen = new SerieWindow();
+            Seizoen.Show();
             this.Close();
         }
 
@@ -63,17 +65,30 @@ namespace ProjectDatamanipulatieAnime_WPF
             //this.Close();
         }
 
-        private void DataGrid_Initialized(object sender, EventArgs e)
+        private void BtnManage_Click(object sender, RoutedEventArgs e)
         {
-            datagridSeizoenen.ItemsSource = DatabaseOperations.OphalenSeizoenen();
+            //Window Manage = new ManageWindow();
+            //Manage.Show();
+            //this.Close();
+        }
+        private void BtnHome_Click(object sender, RoutedEventArgs e)
+        {
+            Window Home = new MainWindow();
+            Home.Show();
+            this.Close();
         }
 
-        private void btnSerieOverview_Click(object sender, RoutedEventArgs e)
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (datagridSeizoenen.SelectedItem is P_Seizoen seizoen)
+
+        }
+
+        private void BtnStemacteur_Click(object sender, RoutedEventArgs e)
+        {
+            if (datagridStemacteurInfo.SelectedItem is P_Stemacteur stemacteur)
             {
-                Window SeizoenOverview = new SerieOverview(seizoen);
-                SeizoenOverview.Show();
+                Window StemacteurWindow = new StemacteurWindow(stemacteur);
+                StemacteurWindow.Show();
                 this.Close();
             }
             else
